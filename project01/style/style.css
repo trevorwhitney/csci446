@@ -1,5 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color:#AAA;
+}
 .container {
   width: 1042px;
+  margin: 0 auto;
+  border: #000 solid 1px;
 }
 .header, .nav, .content, .footer {
   width: 100%;
@@ -18,10 +27,44 @@
 .nav ul li {
   float: left;  
 }
+.content {
+  overflow: auto;
+  background-color:#FFF;
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.content .left {
+  width: 480px;
+  float: left;
+}
+.content .left h2 {
+  margin-left: 12px;
+}
+.feeling-form td.label {
+  width: 185px;
+  display: block;
+}
+.feeling-form td.input {
+  display: block;
+}
+.feeling-form td.input select {
+  background-color: #FFF;
+}
+.content .right {
+  float: right;
+}
 .progress {
-  background-color: #ccc;
+  background-color: rgb(240, 240, 255);
+  float: right;
+  width: 340px;
+  margin-right: 12px;
+  padding-left: 5px;
+}
+.progress p {
+  padding: 12px 0px;
 }
 .footer {
-  background-color: #ccc;
+  background-color: rgb(240, 240, 240);
   text-align: center;
 }

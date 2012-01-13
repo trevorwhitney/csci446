@@ -23,13 +23,29 @@
     <div class="content">
       <div class="left">
         <h2>Lorem Ipsum Dolor Sit Amet.</h2>
-        <form>
-          <label for="feeling">How do you feel today?</label>
-          <input name="feeling" />
-          <label for="desired-feeling">How would you like to feel? (choose all that apply)</label>
-          <input name="desired-feeling" />
-          <input name="submit" />
-        </form>
+        <table class="feeling-form" cellspacing="12">
+          <form class="feeling-form">
+          <tr>
+            <td class="label"><label for="feeling">How do you feel today?</label></td>
+            <td class="input"><input name="feeling" type="text" /></td>
+          </tr>
+          <tr>
+            <td class="label">
+              <label for="desired-feeling">How would you like to feel? (choose all that apply)</label>
+            </td>
+            <td class="input">
+              <select multiple="multiple" name="desired-feeling">
+                <option value="numb">Comfortably numb</option>
+                <option value="grumpy">Grumpy as poop, you jerk</option>
+                <option value="happy">Happy like I'm on controlled substances</option>
+                <option value="normal">Normal. Absolutely Normal.</option>
+              </select>
+            </td>
+          </tr>
+            <td />
+            <td><input type="submit" value="Feel me!"/></td>
+          </form>
+        </table>
       </div>
       <div class="right">
         <div class="progress">
