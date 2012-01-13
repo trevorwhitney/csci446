@@ -1,0 +1,27 @@
+.container {
+  width: 1042px;
+}
+.header, .nav, .content, .footer {
+  width: 100%;
+}
+.header {
+  background-color: #ccc;
+}
+.nav {
+  background-color: #000;
+  float: left;
+}
+.nav ul {
+  color: #FFF;
+  float: left;
+}
+.nav ul li {
+  float: left;  
+}
+.progress {
+  background-color: #ccc;
+}
+.footer {
+  background-color: #ccc;
+  text-align: center;
+}
