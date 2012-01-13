@@ -4,45 +4,80 @@
 }
 body {
   background-color:#AAA;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  font-size: 26pt;
+}
+h2 {
+  font-size: 20pt;
+}
+h3 {
+  font-size: 16pt;
+}
+h4 {
+  font-size: 12pt;
 }
 .container {
   width: 1042px;
   margin: 0 auto;
   border: #000 solid 1px;
+  overflow: hidden;
 }
 .header, .nav, .content, .footer {
   width: 100%;
 }
 .header {
   background-color: #ccc;
+  padding: 10px;
+  line-height:1.5em;
+}
+.header h1 {
+  letter-spacing: -2px;
+}
+.header h4 {
+  color: #666;
 }
 .nav {
   background-color: #000;
   float: left;
+  padding: 10px;
+}
+.nav a {
+  color: #FFF;
+  text-decoration: none;
+}
+.nav a:hover {
+  color: rgb(204, 0, 31);
 }
 .nav ul {
   color: #FFF;
   float: left;
 }
 .nav ul li {
-  float: left;  
+  float: left;
+  font-size: 14pt;
+  margin-left: 30px;
+}
+.nav ul li.first {
+  margin-left:0px;
 }
 .content {
   overflow: auto;
   background-color:#FFF;
   width: 100%;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .content .left {
   width: 480px;
   float: left;
 }
 .content .left h2 {
-  margin-left: 12px;
+  margin-left: 10px;
 }
 .feeling-form td.label {
-  width: 185px;
+  width: 200px;
   display: block;
 }
 .feeling-form td.input {
@@ -58,13 +93,14 @@ body {
   background-color: rgb(240, 240, 255);
   float: right;
   width: 340px;
-  margin-right: 12px;
+  margin-right: 10px;
   padding-left: 5px;
 }
 .progress p {
-  padding: 12px 0px;
+  padding: 10px 0px;
 }
 .footer {
   background-color: rgb(240, 240, 240);
   text-align: center;
+  padding: 10px;
 }

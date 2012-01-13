@@ -11,20 +11,34 @@
     </div>
     <div class="nav">
       <ul>
-        <li class="first">Home</li>
-        <li>Interests</li>
-        <li>Health</li>
-        <li>Academic</li>
-        <li>Professional</li>
-        <li>Fun</li>
-        <li class="last">Evil</li>
+        <li class="first">
+          <a href="#" title="The car is the thing on the road that takes you back to your abode.">Home</a>
+        </li>
+        <li>
+          <a href="#" title="I saw you, with a ticket-stub in your hand!">Interests</a>
+        </li>
+        <li>
+          <a href="#" title="Fluffhead was a man, with a horrible disease.">Health</a>
+        </li>
+        <li>
+          <a href="#" title="She says she wants to be a sociologist,">Academic</a>
+        </li>
+        <li>
+          <a href="#" title="But she better first get checked by a neurologist.">Professional</a>
+        </li>
+        <li>
+          <a href="#" title="You've got to run like an antelope out of control.">Fun</a>
+        </li>
+        <li class="last">
+          <a href="#" title="Oh Wilson, punch you in the eye!">Evil</a>
+        </li>
       </ul>
     </div>
     <div class="content">
       <div class="left">
         <h2>Lorem Ipsum Dolor Sit Amet.</h2>
-        <table class="feeling-form" cellspacing="12">
-          <form class="feeling-form">
+        <table class="feeling-form" cellspacing="10px">
+          <form class="feeling-form" name="feelings" onsubmit="return validateFeelings();" method="post">
           <tr>
             <td class="label"><label for="feeling">How do you feel today?</label></td>
             <td class="input"><input name="feeling" type="text" /></td>
@@ -43,7 +57,7 @@
             </td>
           </tr>
             <td />
-            <td><input type="submit" value="Feel me!"/></td>
+            <td><input type="submit" value="Feel me!" /></td>
           </form>
         </table>
       </div>
@@ -57,5 +71,16 @@
     <div class="footer">
       <span>&copy; Borg-Like Monstrosity of Mind Control, Inc. All rights reserved.</span>
     </div>
+    <script type="text/javascript">
+      function validateFeelings() 
+      {
+        var feeling=document.forms["feelings"]["feeling"].value;
+        if (feeling==null || feeling=="")
+        {
+          alert("Surely you feel something!");
+          return false;
+        }
+      }
+    </script>
 </body>
 </html>
