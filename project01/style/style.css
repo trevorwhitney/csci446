@@ -76,14 +76,20 @@ h4 {
 .content .left h2 {
   margin-left: 10px;
 }
-.feeling-form td.label {
+.feeling-form-table {
+  border-spacing: 10px;
+}
+.feeling-form-table td {
+  float: left;
+}
+.feeling-form-table td.label {
   width: 200px;
   display: block;
 }
-.feeling-form td.input {
+.feeling-form-table td.input {
   display: block;
 }
-.feeling-form td.input select {
+.feeling-form-table td.input select {
   background-color: #FFF;
 }
 .content .right {

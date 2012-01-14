@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Life Figure-Outer Application</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <meta charset="utf-8">
 </head>
 <body>
   <div class="container">
@@ -37,29 +39,33 @@
     <div class="content">
       <div class="left">
         <h2>Lorem Ipsum Dolor Sit Amet.</h2>
-        <table class="feeling-form" cellspacing="10px">
-          <form class="feeling-form" name="feelings" onsubmit="return validateFeelings();" method="post">
-          <tr>
-            <td class="label"><label for="feeling">How do you feel today?</label></td>
-            <td class="input"><input name="feeling" type="text" /></td>
-          </tr>
-          <tr>
-            <td class="label">
-              <label for="desired-feeling">How would you like to feel? (choose all that apply)</label>
-            </td>
-            <td class="input">
-              <select multiple="multiple" name="desired-feeling">
-                <option value="numb">Comfortably numb</option>
-                <option value="grumpy">Grumpy as poop, you jerk</option>
-                <option value="happy">Happy like I'm on controlled substances</option>
-                <option value="normal">Normal. Absolutely Normal.</option>
-              </select>
-            </td>
-          </tr>
-            <td />
-            <td><input type="submit" value="Feel me!" /></td>
-          </form>
-        </table>
+        <form class="feeling-form" name="feelings" onsubmit="return validateFeelings();" method="post">
+          <table class="feeling-form-table">
+            <tr>
+              <td class="label"><label for="feeling">How do you feel today?</label></td>
+              <td class="input"><input name="feeling" id="feeling" type="text" /></td>
+            </tr>
+            <tr>
+              <td class="label">
+                <label for="desired-feeling">How would you like to feel? (choose all that apply)</label>
+              </td>
+              <td class="input">
+                <select multiple="multiple" name="desired-feeling" id="desired-feeling">
+                  <option value="numb">Comfortably numb</option>
+                  <option value="grumpy">Grumpy as poop, you jerk</option>
+                  <option value="happy">Happy like I'm on controlled substances</option>
+                  <option value="normal">Normal. Absolutely Normal.</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="buttons">
+              <td class="label">
+                <span>&nbsp;</span>
+              </td>
+              <td class="input"><input type="submit" value="Feel me!" /></td>
+            </tr>
+          </table>
+        </form>
       </div>
       <div class="right">
         <div class="progress">
@@ -82,5 +88,6 @@
         }
       }
     </script>
+  </div>
 </body>
 </html>
