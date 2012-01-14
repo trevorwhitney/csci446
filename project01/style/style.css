@@ -53,6 +53,7 @@ h4 {
 .nav ul {
   color: #FFF;
   float: left;
+  list-style-type: none;
 }
 .nav ul li {
   float: left;
@@ -70,7 +71,7 @@ h4 {
   padding-bottom: 10px;
 }
 .content .left {
-  width: 480px;
+  width: 515px;
   float: left;
 }
 .content .left h2 {
