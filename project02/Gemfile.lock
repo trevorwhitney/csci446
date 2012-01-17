@@ -1,0 +1,10 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rubywarrior (0.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rubywarrior
