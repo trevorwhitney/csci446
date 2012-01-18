@@ -4,7 +4,9 @@ class Player
   end
 
   def play_turn(warrior)
-    if warrior.feel.enemy?
+    if warrior.feel.captive?
+      warrior.rescue!
+    elsif warrior.feel.enemy?
       if warrior.feel.to_s == "Archer"
         warrior.attack!
       elsif warrior.health > 7
@@ -13,7 +15,7 @@ class Player
         warrior.walk! :backward
       end
     else
-      if warrior.health > 10
+      if warrior.health > 15
         warrior.walk!
       elsif @health > warrior.health
         warrior.walk!
