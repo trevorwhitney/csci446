@@ -1,21 +1,17 @@
 class Player
   def initialize
     @health = 20
-    @captive_rescued = false
+    @turned = false
   end
 
   def play_turn(warrior)
-    if warrior.feel.captive?
-      warrior.rescue!
-    elsif warrior.feel(:backward).captive?
-      warrior.rescue! :backward
-      @captive_rescued = true
-    elsif !@captive_rescued
-      warrior.walk! :backward
+    if !@turned
+      warrior.pivot!
+      @turned = true
     elsif warrior.feel.enemy?
       if warrior.feel.to_s == "Archer"
         warrior.attack!
-      elsif warrior.health > 17
+      elsif warrior.health > 15
         warrior.attack!
       else 
         warrior.walk! :backward
