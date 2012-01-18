@@ -1,17 +1,26 @@
 class Player
+  def initialize
+    @health = 20
+  end
+
   def play_turn(warrior)
     if warrior.feel.enemy?
-      if warrior.health > 10
+      if warrior.feel.to_s == "Archer"
         warrior.attack!
-      else
+      elsif warrior.health > 7
+        warrior.attack!
+      else 
         warrior.walk! :backward
       end
     else
-      if warrior.health > 15
+      if warrior.health > 10
+        warrior.walk!
+      elsif @health > warrior.health
         warrior.walk!
       else
         warrior.rest!
       end
     end
+    @health = warrior.health
   end
 end
