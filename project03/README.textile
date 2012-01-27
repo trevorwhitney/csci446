@@ -1,0 +1,3 @@
+h1. Depot Application
+
+This is my attempt at the Depot application in "Agile Web Development With Rails 4th Edition":http://pragprog.com/book/rails4/agile-web-development-with-rails by Sam Ruby.
