@@ -56,6 +56,20 @@ class ProductTest < ActiveSupport::TestCase
       product.errors[:title].join(';')
   end
 
+  test "product title should be at least 10 characters" do 
+    product = Product.new(:title => "Not 10",
+      :description => "yyy",
+      :price => 1,
+      :image_url => "fred.gif"
+    )
+
+    assert product.invalid?, "\"Not 10\" should not be a valid title"
+
+    product.title = "This title has more than 10 characters"
+
+    assert product.valid?, "#{product.title} should be a valid title"
+  end
+
   def new_product(image_url)
     Product.new(:title => "My Book Title",
       :description => "yyy",
