@@ -14,5 +14,8 @@
 /log/*.log
 /tmp
 
-# Igore sensitive DB information
+# Ignore sensitive DB information
 /config/database.yaml
+
+# Ignore .rvmrc, since others may use a different gemset name
+/.rvmrc
