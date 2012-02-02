@@ -1,4 +1,8 @@
 class Product < ActiveRecord::Base
+  #scope
+  default_scope :order => 'title'
+
+  #validation
   validates :title, :description, :image_url, :presence => true
   validates :title, :length => { :minimum => 10, 
     :message => "must be at least 10 characters long" }
