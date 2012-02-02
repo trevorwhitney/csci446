@@ -52,7 +52,7 @@ class ProductTest < ActiveSupport::TestCase
     )
 
     assert !product.save, "product should not be able to be saved"
-    assert_equal I18n.translate('activerecord.errors.messages.taken'),
+    assert_equal "already exists",
       product.errors[:title].join(';')
   end
 
