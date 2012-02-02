@@ -2,6 +2,10 @@ class Product < ActiveRecord::Base
   #scope
   default_scope :order => 'title'
 
+  #associations
+  has_many :line_items
+  before_destroy :ensure_not_referenced_by_any_line_item
+
   #validation
   validates :title, :description, :image_url, :presence => true
   validates :title, :length => { :minimum => 10, 
@@ -13,4 +17,15 @@ class Product < ActiveRecord::Base
     :with => %r{\.(gif|jpg|png)$}i,
     :message => 'must be a URL for GIF, JPG, or PNG image.'
   }
+
+  private
+
+  def ensure_not_referenced_by_any_line_item
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base, 'Line Items present')
+      return false
+    end
+  end
 end
