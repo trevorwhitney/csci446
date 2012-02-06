@@ -1,3 +1,9 @@
 $('#cart').html("<%=j render @cart %>");
 
-$('#current_item').effect('highlight', {color : '#88ff88'}, 3000);
+<% if @cart.total_items == 1 %>
+  $('#cart').show('blind', {direction : 'vertical' }, 1000);
+<% end %>
+
+<% if @cart.total_items > 1 %>
+  $('#current_item').effect('highlight', {color : '#88ff88'}, 3000);
+<% end %>
