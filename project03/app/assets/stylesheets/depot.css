@@ -81,6 +81,10 @@
   margin-bottom: 10px;
 }
 
+#current_item {
+  background: #141;
+}
+
 /* Styles for products/index */
 
 #product_list table {
