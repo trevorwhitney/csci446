@@ -1,2 +1,5 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+The Depot Tutorial
+
+I built this site to learn rails. I followed the tutorial in Sam Ruby's "Agile Web Development with Rails", which lead me step by step through the creation of this fake online store front.
+
+The store is divided up into two main sections. First is the public store front, where customers can view products, put them in their cart, and checkout and create an order for the products they've selected. The second part is an administration back-end that requires a login. This back-end allows administrators to manage products, view orders, and manage users.
