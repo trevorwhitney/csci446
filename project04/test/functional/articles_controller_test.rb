@@ -3,6 +3,8 @@ require 'test_helper'
 class ArticlesControllerTest < ActionController::TestCase
   setup do
     @article = articles(:one)
+    @new = articles(:one)
+    @new.title = "Unique Title"
   end
 
   test "should get index" do
@@ -18,7 +20,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should create article" do
     assert_difference('Article.count') do
-      post :create, article: @article.attributes
+      post :create, article: @new.attributes
     end
 
     assert_redirected_to article_path(assigns(:article))

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  body: MyText
+  title: First Article
+  body: MyText 1
   author_id: 1
+  edits: 3
 
 two:
-  title: MyString
-  body: MyText
-  author_id: 1
+  title: Second Articles
+  body: MyText 2
+  author_id: 2
+  edits: 7
