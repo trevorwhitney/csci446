@@ -7,8 +7,8 @@ body {
   background-color: #fff;
   color: #333;
   font-family: 'playtime', sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+  font-size: 12pt;
+  line-height: 1.5em; }
 
 p, ol, ul, td {
   font-size: 13px;
@@ -30,6 +30,11 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px; } }
+
+div.clear {
+  clear: both;
+  float: none;
+}
 
 #notice {
   color: green; }

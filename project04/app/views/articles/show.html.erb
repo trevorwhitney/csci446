@@ -2,21 +2,23 @@
 
 <nav id="article_nav">
   <ul>
-    <li><%= link_to image_tag('arrow_left.png') + 'list all articles', articles_path, 
+    <li class="first"><%= link_to image_tag('arrow_left.png', :id => 'back') + 'list all articles', articles_path, 
             :title => 'Return to all articles list' %></li>
-    <li><%= link_to image_tag('page_edit.png') + 'edit', edit_article_path(@article),
+    <li><%= link_to image_tag('page_edit.png', :id => 'edit') + 'edit', edit_article_path(@article),
             :title => 'Edit this article' %></li>
-    <li><%= link_to image_tag('bin.png') + 'delete', @article,
+    <li><%= link_to image_tag('bin.png', :id => 'delete') + 'delete', @article,
             :title => 'Delete this article', :method => :delete, :confirm => 'Are you sure?' %></li>
-    <li><%= mail_to nil, image_tag('email.png') + 'email', :title => 'Email this article to a friend', :subject => @article.title, :body => article_url(@article) %></li>
+    <li><%= mail_to nil, image_tag('email.png', :id => 'email') + 'email', :title => 'Email this article to a friend', :subject => @article.title, :body => article_url(@article) %></li>
   </ul>
 </nav>
 
-<h1 id="atricle_title"><%= @article.title %></h1>
+<div class="clear"></div>
+
+<h1 id="article_title"><%= @article.title %></h1>
 <p id="article_byline">
   <%= "by #{@article.author.name}. #{pluralize(@article.edits, 'edit')} since #{@article.created_at.to_date}." %>
 </p>
 
-<p>
+<p id="article_body">
   <%= @article.body %>
 </p>

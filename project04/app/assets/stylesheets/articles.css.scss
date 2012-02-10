@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Index Styles */
 $table_width: 900px;
 $title_width: 180px;
 $author_width: 125px;
@@ -28,11 +29,6 @@ div#articles_header {
   h1 {
     float: left;
   }
-}
-
-div.clear {
-  clear: both;
-  float: none;
 }
 
 div#article_table_header, div#article_table_footer {
@@ -121,4 +117,53 @@ div.buttons {
 div#article_count {
   font-size: 12pt;
   padding-top: 5px;
+}
+
+/* Show Styles */
+nav#article_nav {
+  padding-bottom: 40px;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      float: left;
+      margin-left: 20px;
+      font-size: 12pt;
+
+      img {
+        padding-right: 3px;
+        position: relative;
+      }
+
+      img#back {
+        top: 3px;
+      }
+
+      img#edit {
+        top: 2px;
+      }
+
+      img#delete {
+        top: 3px;
+      }
+
+      img#email {
+        top: 4px;
+      }
+    }
+
+    li.first {
+      margin-left: 0px;
+    }
+  }
+}
+
+h1#article_title {
+  font-size: 24pt;
+  margin-bottom: 7px;
+}
+
+p#article_body {
+  margin-top: 15px;
 }
