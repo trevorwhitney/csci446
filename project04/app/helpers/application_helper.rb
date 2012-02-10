@@ -6,7 +6,7 @@ module ApplicationHelper
       "... my cousin works for Bit.ly",
       "... not just for the country of Spain",
       "... my favorite radio staion is Last.fm",
-      "... all your \"Artcl\" are belong to us"
+      "... all your \"Articl\" are belong to us"
     ]
     num = rand(messages.size)
     messages[num]
