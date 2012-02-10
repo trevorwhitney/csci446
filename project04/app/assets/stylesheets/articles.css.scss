@@ -1,3 +1,18 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#article_table_container {
+  height: 300px;
+  width: 750px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+tr.article_line_odd {
+  background: #EEE;
+}
+
+tr.article_line_even {
+  background: #FFF;
+}

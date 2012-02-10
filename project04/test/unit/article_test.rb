@@ -17,5 +17,6 @@ class ArticleTest < ActiveSupport::TestCase
       :author_id => articles(:one).author_id
     )
     assert !article.save, "#{article.title} should not be a unique title"
+    assert_equal "has already been taken", article.errors[:title].join(';')
   end
 end

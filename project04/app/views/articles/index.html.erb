@@ -1,5 +1,7 @@
 <h1>All the World's Articles</h1>
 
+<%= link_to 'New Article', new_article_path %>
+
 <table id="article_table_header">
   <tr>
     <th>Title</th>
@@ -14,9 +16,9 @@
 <div id="article_table_container">
   <table id="article_table_content">
   <% @articles.each do |article| %>
-    <tr>
+    <tr class="<%= cycle('article_line_odd', 'article_line_even') %>">
       <td><%= article.title %></td>
-      <td><%= article.body %></td>
+      <td><%= truncate(article.body, :length => 60) %></td>
       <td><%= article.author_id %></td>
       <td><%= link_to 'Show', article %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
@@ -27,5 +29,3 @@
 </div>
 
 <br />
-
-<%= link_to 'New Article', new_article_path %>
