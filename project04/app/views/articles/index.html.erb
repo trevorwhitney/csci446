@@ -1,6 +1,6 @@
 <div id="articles_header">
   <h1>All the World's Articles</h1>
-  <%= link_to image_tag('add.png') + 'New Article', new_article_path %>
+  <%= link_to image_tag('add.png') + 'New Article', new_article_path, :title => "Create a new article" %>
 </div>
 
 <div class="clear"></div>
@@ -22,9 +22,9 @@
     <p class="created_at"><%= l article.created_at.to_date, :format => :default %></p>
   </span>
   <div class="buttons">
-    <%= link_to image_tag('magnifier.png'), article %>
-    <%= link_to image_tag('page_edit.png'), edit_article_path(article) %>
-    <%= link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete %>
+    <%= link_to image_tag('magnifier.png'), article, :title => 'View article' %>
+    <%= link_to image_tag('page_edit.png'), edit_article_path(article), :title => 'Edit article' %>
+    <%= link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete, :title => 'Delete article' %>
   </div>
 <% end %>
 </div>
