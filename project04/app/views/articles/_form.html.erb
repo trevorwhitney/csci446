@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <% @authors = Author.all %>
+
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -21,7 +23,8 @@
   </div>
   <div class="field">
     <%= f.label :author_id %><br />
-    <%= f.number_field :author_id %>
+    <%= collection_select(:article, :author_id, @authors, :id, :name, {:prompt => 'Please select an author...'}) %>
+    <%= link_to "Create new author", new_author_path %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,6 +1,6 @@
-<h1>Listing articles</h1>
+<h1>All the World's Articles</h1>
 
-<table>
+<table id="article_table_header">
   <tr>
     <th>Title</th>
     <th>Body</th>
@@ -9,18 +9,22 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.body %></td>
-    <td><%= article.author_id %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
 </table>
+
+<div id="article_table_container">
+  <table id="article_table_content">
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.body %></td>
+      <td><%= article.author_id %></td>
+      <td><%= link_to 'Show', article %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
 
 <br />
 
