@@ -2,17 +2,72 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+div#article_table_header {
+  width: 700px;
+  text-align: left;
+}
+
 div#article_table_container {
   height: 300px;
-  width: 750px;
+  width: 698px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-tr.article_line_odd {
-  background: #EEE;
+div#article_table_container span {
+  float: left;
 }
 
-tr.article_line_even {
+div#article_table_content p {
+  padding-left:5px;
+  padding-right:5px;
+  line-height: 2em;
+  border-bottom: 1px #000 solid;
+  height: 2em;
+}
+
+div#article_table_content span, div#article_table_content p {
+  float: left;
+}
+
+span.article_line_odd {
+  background: #EEE;
+  height: 2em;
+}
+
+span.article_line_even {
   background: #FFF;
+  height: 2em;
+}
+
+p.header {
+  font-weight: bold;
+  background: #CCC;
+  padding-left:5px;
+  padding-right:5px;
+  border-top: 1px #000 solid;
+}
+
+p.title {
+  float:left;
+  width:180px;
+  border-left: 1px #000 solid;
+}
+
+p.author {
+  float: left;
+  width: 100px;
+  border-left: 1px #000 solid;
+  border-right: 1px #000 solid;
+}
+
+p.body {
+  float:left;
+  width: 265px;
+  border-right: 1px #000 solid;
+}
+
+div.buttons {
+  float:right;
+  width:100px
 }

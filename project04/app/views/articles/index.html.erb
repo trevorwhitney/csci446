@@ -2,28 +2,26 @@
 
 <%= link_to 'New Article', new_article_path %>
 
-<table id="article_table_header">
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-</table>
+<div id="article_table_header">
+    <p class="title header">Title</p>
+    <p class="author header">Author</p>
+    <p class="body header">Body</p>
+</div>
+<div class="buttons">&nbsp;</div>
 
 <div id="article_table_container">
-  <table id="article_table_content">
+  <div id="article_table_content">
   <% @articles.each do |article| %>
-    <tr class="<%= cycle('article_line_odd', 'article_line_even') %>">
-      <td><%= article.title %></td>
-      <td><%= truncate(article.body, :length => 60) %></td>
-      <td><%= article.author_id %></td>
-      <td><%= link_to 'Show', article %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
+    <span class="<%= cycle('article_line_odd', 'article_line_even') %>">
+      <p class="title"><%= article.title %></p>
+      <p class="author"><%= article.author.name %></p>
+      <p class="body"><%= truncate(article.body, :length => 20) %></p>
+    </span>
+    <div class="buttons">
+      <%= link_to 'Show', article %>
+      <%= link_to 'Edit', edit_article_path(article) %>
+      <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+    </div>
   <% end %>
   </table>
 </div>
