@@ -37,8 +37,18 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "should update article" do
+    edits = @article.edits
+    edits += 1
     put :update, id: @article, article: @article.attributes
-    assert_redirected_to article_path(assigns(:article))
+
+    #assert_equal edits, Article.find(@article.id).edits
+
+    if session[:previous_page]
+      redirect_url = session[:previous_page]
+    else
+      redirect_url = assigns(:article)
+    end
+    assert_redirected_to article_path(redirect_url)
   end
 
   test "should destroy article" do

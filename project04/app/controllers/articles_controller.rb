@@ -37,6 +37,8 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
     @author = Author.all
+
+    session[:previous_page] = request.env['HTTP_REFERER']
   end
 
   # POST /articles
@@ -59,10 +61,16 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
+    @article.edits += 1
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        if session[:previous_page]
+          redirect_url = session[:previous_page]
+        else
+          redirect_url = article_path(@article)
+        end
+        format.html { redirect_to redirect_url, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
