@@ -37,7 +37,8 @@ div.clear {
 }
 
 #notice {
-  color: green; }
+  color: green;
+  margin-bottom: 10px; }
 
 .field_with_errors {
   padding: 2px;
@@ -85,4 +86,5 @@ div#masthead {
 div#container {
   width: 800px;
   margin: 0 auto;
+  margin-top: 40px;
 }

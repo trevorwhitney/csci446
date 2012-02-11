@@ -164,6 +164,40 @@ h1#article_title {
   margin-bottom: 7px;
 }
 
-p#article_body {
+div#article_body {
   margin-top: 15px;
+
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+/* Form Styles */
+form.edit_article, form.new_article {
+  div.field {
+    padding-bottom: 40px;
+
+    label {
+      float: left;
+      width: 110px;
+      margin-right: 30px;
+      font-size: 14pt;
+    }
+    input {
+      float: left;
+    }
+    textarea {
+      float: left;
+    }
+
+    a {
+      margin-left: 3px;
+    }
+
+    img {
+      position: relative;
+      top: 3px;
+      padding-right: 3px;
+    }
+  }
 }
