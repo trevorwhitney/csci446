@@ -16,9 +16,9 @@
 
 <h1 id="article_title"><%= @article.title %></h1>
 <p id="article_byline">
-  <%= "by #{@article.author.name}. #{pluralize(@article.edits, 'edit')} since #{@article.created_at.to_date}." %>
+  <%= "by #{@article.author.name}. #{pluralize(@article.edits, 'edit')} since #{@article.created_at.to_date.strftime("%A, %b. %d %Y")}." %>
 </p>
 
-<p id="article_body">
-  <%= @article.body %>
-</p>
+<div id="article_body">
+  <%= raw RedCloth.new(@article.body).to_html %>
+</div>

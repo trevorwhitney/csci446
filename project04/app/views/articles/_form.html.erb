@@ -14,18 +14,21 @@
   <% @authors = Author.all %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+    <div class="clear"></div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+  <%= f.label :author_id, "Author's name" %>
+  <%= collection_select(:article, :author_id, @authors, :id, :name, {:prompt => 'Please select an author...'}) %>
+  <%= link_to image_tag('add.png') + "Create a new author", new_author_path %>
   </div>
+  <div class="clear"></div>
   <div class="field">
-    <%= f.label :author_id %><br />
-    <%= collection_select(:article, :author_id, @authors, :id, :name, {:prompt => 'Please select an author...'}) %>
-    <%= link_to "Create new author", new_author_path %>
+    <%= f.label :body %>
+    <%= f.text_area :body, :cols => 80 %>
   </div>
+  <div class="clear">
   <div class="actions">
     <%= f.submit %>
   </div>

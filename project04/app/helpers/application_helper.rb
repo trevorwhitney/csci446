@@ -8,7 +8,6 @@ module ApplicationHelper
       "... my favorite radio staion is Last.fm",
       "... all your \"Articl\" are belong to us"
     ]
-    num = rand(messages.size)
-    messages[num]
+    messages[rand(messages.size)]
   end
 end
