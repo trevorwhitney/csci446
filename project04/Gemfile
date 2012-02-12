@@ -39,3 +39,6 @@ gem 'jquery-rails'
 
 # Use RedCloth to format articles
 gem 'RedCloth'
+
+# pry for debugging
+gem 'pry'
