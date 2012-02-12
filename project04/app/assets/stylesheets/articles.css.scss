@@ -18,6 +18,8 @@ div#articles_header {
 
   a {
     float: right;
+    position: relative;
+    top: 5px;
     
     img {
       margin-right: 2px;
@@ -175,7 +177,7 @@ div#article_body {
 /* Form Styles */
 form.edit_article, form.new_article {
   div.field {
-    padding-bottom: 40px;
+    height: 20px;
 
     label {
       float: left;
