@@ -5,3 +5,7 @@ en:
   date:
     formats:
       default: "%A, %b. %d %Y"
+  helpers:
+    submit:
+      create: "Create!"
+      update: "Save Changes"
