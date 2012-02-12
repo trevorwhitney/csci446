@@ -3,11 +3,11 @@
 one:
   title: First Article
   body: MyText 1
-  author_id: 1
+  author: robert
   edits: 3
 
 two:
   title: Second Articles
   body: MyText 2
-  author_id: 2
+  author: jack
   edits: 7
