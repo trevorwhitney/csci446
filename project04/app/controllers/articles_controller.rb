@@ -61,10 +61,11 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
-    @article.edits += 1
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        @article.edits += 1
+        @article.save
         if session[:previous_page]
           redirect_url = session[:previous_page]
         else
