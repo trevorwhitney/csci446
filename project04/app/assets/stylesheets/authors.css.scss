@@ -46,7 +46,19 @@ h2#author_title, h2#author_form_title {
   margin-bottom: 7px;
 }
 
-/* Form Styles */
+/* Index View */
+tr{
+  height: 2em;
+}
+
+tr.author_line_odd {
+  background: #EEE;
+}
+
+tr.author_line_even {
+  background: #FFF;
+}
+
 /* Form Styles */
 form.edit_author, form.new_author {
   div.field {

@@ -1,6 +1,9 @@
-<h1>Editing author</h1>
+<nav id="author_nav">
+  <ul>
+    <li class="first"><%= link_to image_tag('arrow_left.png', :id => 'back') + 'list all authors', authors_path, 
+            :title => 'Return to all authors list' %></li>
+  </ul>
+</nav>
+<h1>Editing Author "<%= @author.name %>"</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @author %> |
-<%= link_to 'Back', authors_path %>

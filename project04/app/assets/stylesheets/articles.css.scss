@@ -74,12 +74,12 @@ div#article_table_content span, div#article_table_content p {
 
 span.article_line_odd {
   background: #EEE;
-  height: 2em;
+  height: $line_height;
 }
 
 span.article_line_even {
   background: #FFF;
-  height: 2em;
+  height: $line_height;
 }
 
 p.header, p.footer {
