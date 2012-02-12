@@ -11,6 +11,7 @@ $created_at_width: 140px;
 $column_padding_left: 5px;
 $column_padding_right: 5px;
 $button_width: 60px;
+$line_height: 2em;
 
 div#articles_header {
   width: $title_width + $author_width + $body_width + $created_at_width + ($column_padding_left + $column_padding_right)*4;
@@ -43,7 +44,7 @@ div#article_table_header, div#article_table_footer {
 }
 
 div#article_table_content {
-  height: 262px;
+  height: $line_height * 10;
   width: $table_width - 2px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -62,8 +63,8 @@ div#article_table_content p {
   font-size: 12pt;
   padding-left:$column_padding_left;
   padding-right:$column_padding_right;
-  line-height: 2em;
-  height: 2em;
+  line-height: $line_height;
+  height: $line_height;
   border-right: 1px #000 solid;
 }
 
@@ -113,7 +114,8 @@ p.created_at {
 div.buttons {
   float:right;
   width:$button_width;
-  padding-right: 4px
+  padding-right: 4px;
+  line-height: $line_height;
 }
 
 div#article_count {
