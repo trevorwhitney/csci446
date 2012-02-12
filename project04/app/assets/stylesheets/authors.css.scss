@@ -1,3 +1,47 @@
 // Place all the styles related to the authors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav#author_nav {
+  padding-bottom: 40px;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      float: left;
+      margin-left: 40px;
+      font-size: 12pt;
+
+      img {
+        padding-right: 3px;
+        position: relative;
+      }
+
+      img#back {
+        top: 3px;
+      }
+
+      img#edit {
+        top: 2px;
+      }
+
+      img#delete {
+        top: 3px;
+      }
+
+      img#email {
+        top: 4px;
+      }
+    }
+
+    li.first {
+      margin-left: 0px;
+    }
+  }
+}
+
+h2#author_title, h2#author_form_title {
+  font-size: 24pt;
+  margin-bottom: 7px;
+}
