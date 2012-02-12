@@ -25,6 +25,7 @@ class AuthorsController < ApplicationController
   # GET /authors/new.json
   def new
     @author = Author.new
+    session[:author_previous] = request.env["HTTP_REFERER"]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1/edit
   def edit
     @author = Author.find(params[:id])
+    session[:author_previous] = request.env["HTTP_REFERER"]
   end
 
   # POST /authors
@@ -44,7 +46,12 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        if session[:author_previous]
+          redirect_url = session[:author_previous]
+        else
+          redirect_url = authors_path
+        end
+        format.html { redirect_to redirect_url, notice: 'Author was successfully created.' }
         format.json { render json: @author, status: :created, location: @author }
       else
         format.html { render action: "new" }
@@ -60,7 +67,12 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.update_attributes(params[:author])
-        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
+        if session[:author_previous]
+          redirect_url = session[:author_previous]
+        else
+          redirect_url = authors_path
+        end
+        format.html { redirect_to redirect_url, notice: 'Author was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

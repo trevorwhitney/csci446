@@ -38,7 +38,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @author = Author.all
 
-    session[:previous_page] = request.env['HTTP_REFERER']
+    unless request.env['HTTP_REFERER'] =~ /authors/
+      session[:article_previous] = request.env['HTTP_REFERER']
+    end
   end
 
   # POST /articles
@@ -66,8 +68,8 @@ class ArticlesController < ApplicationController
       if @article.update_attributes(params[:article])
         @article.edits += 1
         @article.save
-        if session[:previous_page]
-          redirect_url = session[:previous_page]
+        if session[:article_previous]
+          redirect_url = session[:article_previous]
         else
           redirect_url = article_path(@article)
         end
