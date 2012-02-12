@@ -1,5 +1,9 @@
-<h1>Editing "<%= @article.title %>"</h1>
-
-<%= link_to 'Back', articles_path %>
+<nav id="article_nav">
+  <ul>
+    <li class="first"><%= link_to image_tag('arrow_left.png', :id => 'back') + 'back', session[:previous_page], 
+            :title => 'Return to all articles list' %></li>
+  </ul>
+</nav>
+<h2 id="article_form_title">Editing "<%= @article.title %>"</h2>
 
 <%= render 'form' %>

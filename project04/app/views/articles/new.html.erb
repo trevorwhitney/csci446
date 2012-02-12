@@ -1,5 +1,9 @@
-<h1>New article</h1>
+<nav id="article_nav">
+  <ul>
+    <li class="first"><%= link_to image_tag('arrow_left.png', :id => 'back') + 'list all articles', articles_path, 
+            :title => 'Return to all articles list' %></li>
+  </ul>
+</nav>
+<h2 id="article_form_title">Creating a New Article</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', articles_path %>

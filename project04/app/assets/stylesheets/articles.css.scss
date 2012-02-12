@@ -128,7 +128,7 @@ nav#article_nav {
 
     li {
       float: left;
-      margin-left: 20px;
+      margin-left: 40px;
       font-size: 12pt;
 
       img {
@@ -159,7 +159,7 @@ nav#article_nav {
   }
 }
 
-h1#article_title {
+h2#article_title, h2#article_form_title {
   font-size: 24pt;
   margin-bottom: 7px;
 }
