@@ -21,7 +21,7 @@
   <div class="field">
   <%= f.label :author_id, "Author's name" %>
   <%= collection_select(:article, :author_id, @authors, :id, :name, {:prompt => 'Please select an author...'}) %>
-  <%= link_to image_tag('add.png') + "Create a new author", new_author_path %>
+  <%= link_to image_tag('add.png') + "Create a new author", new_author_path, title: 'Create an author' %>
   </div>
   <div class="clear"></div>
   <div class="field">
