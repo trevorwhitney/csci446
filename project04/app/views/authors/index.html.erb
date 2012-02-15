@@ -1,6 +1,12 @@
 <% content_for :subtitle do %>
   ... all your "Articl" are belong to us
 <% end %>
+<nav id="author_nav">
+  <ul>
+    <li class="first"><%= link_to image_tag('arrow_left.png', :id => 'back') + 'back to articles', articles_path, 
+            :title => 'Return to all articles list' %></li>
+  </ul>
+</nav>
 <h1>Listing authors</h1>
 
 <table id="authors_table">
