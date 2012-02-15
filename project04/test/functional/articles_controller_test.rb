@@ -37,11 +37,7 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "should update article" do
-    edits = @article.edits
-    edits += 1
     put(:update, {id: @article, article: @article.attributes}, {article_previous: articles_path})
-
-    assert_equal edits, Article.find(@article).edits
 
     assert_redirected_to articles_path
   end

@@ -66,8 +66,6 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        @article.edits += 1
-        @article.save
         if session[:article_previous]
           redirect_url = session[:article_previous]
         else

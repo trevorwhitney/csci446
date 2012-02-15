@@ -19,4 +19,11 @@ class ArticleTest < ActiveSupport::TestCase
     assert !article.save, "#{article.title} should not be a unique title"
     assert_equal "has already been taken", article.errors[:title].join(';')
   end
+
+  test "article should increment edits when saved" do
+    article = articles(:one)
+    edits = article.edits + 1
+    assert article.save
+    assert_equal article.edits, edits
+  end
 end
