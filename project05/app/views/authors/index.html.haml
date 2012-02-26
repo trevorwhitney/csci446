@@ -1,0 +1,16 @@
+- content_for :subtitle do
+  \... all your "Articl" are belong to us
+%nav#author_nav
+  %ul
+    %li.first= back_to_articles_link
+%h1 Listing authors
+%table#authors_table
+  %tr
+    %th Name
+    %td{:colspan => "3"}= new_author_link
+  - @authors.each do |author|
+    %tr{:class => cycle('author_line_odd', 'author_line_even')}
+      %td= author.name
+      %td= link_to image_tag('magnifier.png'), author, title: 'View author'
+      %td= link_to image_tag('page_edit.png'), edit_author_path(author), title: 'Edit author'
+      %td= link_to image_tag('bin.png'), author, confirm: 'Are you sure?', method: :delete, title: 'Delete author'

@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title Articl.es -- All the World's Articles (with a name .com hipsters love)
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #masthead
+      %a{:href => root_url, :title => "Return to home page"}
+        %h1#title Articl.es
+      %h3#subtitle= yield :subtitle
+    #container
+      = yield

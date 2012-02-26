@@ -1,0 +1,8 @@
+- content_for :subtitle do
+  \... bookmark Articl.es on del.icio.us
+%nav#author_nav
+  %ul
+    %li.first= list_authors_link
+%h1
+  Editing Author "#{@author.name}"
+= render 'form'

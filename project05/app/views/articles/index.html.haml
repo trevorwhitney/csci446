@@ -1,0 +1,32 @@
+- content_for :subtitle do
+  \... with a name .com hipsters love!
+%p#notice= notice
+#articles_header
+  %h1 All the World's articles
+  = link_to image_tag('add.png') + 'New Article', new_article_path, :title => "Create a new article"
+.clear
+#article_table_header
+  %p.title.header Title
+  %p.author.header Author
+  %p.body.header Body
+  %p.created_at.header Creation Date
+  .buttons &nbsp;
+#article_table_content
+  - @articles.each do |article|
+    %span{:class => cycle('article_line_odd', 'article_line_even')}
+    %p.title= truncate(article.title, :length => 25)
+    %p.author= truncate(article.author.name, :length => 20)
+    %p.body= truncate(article.body, :length => 50)
+    %p.created_at= l article.created_at.to_date, :format => :default
+    .buttons
+      = link_to image_tag('magnifier.png'), article, :title => 'View article'
+      = link_to image_tag('page_edit.png'), edit_article_path(article), :title => 'Edit article'
+      = link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete, :title => 'Delete article'
+#article_table_footer
+  %p.title.footer
+  %p.author.footer
+  %p.body.footer
+  %p.created_at.footer
+  .buttons
+#article_count
+  = pluralize(Article.count, 'article')
