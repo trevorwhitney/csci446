@@ -1,0 +1,35 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% @authors = Author.all %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+    <div class="clear"></div>
+  <div class="field">
+  <%= f.label :author_id, "Author's name" %>
+  <%= collection_select(:article, :author_id, @authors, :id, :name, {:prompt => 'Please select an author...'}) %>
+  <%= link_to image_tag('add.png') + "Create a new author", new_author_path, title: 'Create an author' %>
+  </div>
+  <div class="clear"></div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, :cols => 80 %>
+  </div>
+  <div class="clear">
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

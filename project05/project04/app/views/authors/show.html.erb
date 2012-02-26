@@ -1,0 +1,13 @@
+<% content_for :subtitle do %>
+  ... check out this author's about.me site
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @author.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>

@@ -1,0 +1,207 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Index Styles */
+$table_width: 900px;
+$title_width: 180px;
+$author_width: 125px;
+$body_width: 325px;
+$created_at_width: 140px;
+$column_padding_left: 5px;
+$column_padding_right: 5px;
+$button_width: 60px;
+$line_height: 2em;
+
+div#articles_header {
+  width: $title_width + $author_width + $body_width + $created_at_width + ($column_padding_left + $column_padding_right)*4;
+  padding-bottom: 40px;
+
+  a {
+    float: right;
+    position: relative;
+    top: 5px;
+    
+    img {
+      margin-right: 2px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  h1 {
+    float: left;
+  }
+}
+
+div#article_table_header, div#article_table_footer {
+  width: $table_width;
+  text-align: left;
+
+  p.title {
+    border-left: 1px #000 solid;
+  }
+}
+
+div#article_table_content {
+  height: $line_height * 10;
+  width: $table_width - 2px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  p.title {
+    border-left: 1px #000 solid;
+  }
+}
+
+div#article_table_container span {
+  float: left;
+}
+
+div#article_table_content p {
+  font-family: 'playtime';
+  font-size: 12pt;
+  padding-left:$column_padding_left;
+  padding-right:$column_padding_right;
+  line-height: $line_height;
+  height: $line_height;
+  border-right: 1px #000 solid;
+}
+
+div#article_table_content span, div#article_table_content p {
+  float: left;
+}
+
+span.article_line_odd {
+  background: #EEE;
+  height: $line_height;
+}
+
+span.article_line_even {
+  background: #FFF;
+  height: $line_height;
+}
+
+p.header, p.footer {
+  border-top: 1px #000 solid;
+  float: left;
+  border-right: 1px #000 solid;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+p.header {
+  font-weight: bold;
+  background: #CCC;
+}
+
+p.title {
+  width:$title_width;
+}
+
+p.author {
+  width: $author_width;
+}
+
+p.body {
+  width: $body_width;
+}
+
+p.created_at {
+  width: $created_at_width;
+}
+
+div.buttons {
+  float:right;
+  width:$button_width;
+  padding-right: 4px;
+  line-height: $line_height;
+}
+
+div#article_count {
+  font-size: 12pt;
+  padding-top: 5px;
+}
+
+/* Show Styles */
+nav#article_nav {
+  padding-bottom: 40px;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      float: left;
+      margin-left: 40px;
+      font-size: 12pt;
+
+      img {
+        padding-right: 3px;
+        position: relative;
+      }
+
+      img#back {
+        top: 3px;
+      }
+
+      img#edit {
+        top: 2px;
+      }
+
+      img#delete {
+        top: 3px;
+      }
+
+      img#email {
+        top: 4px;
+      }
+    }
+
+    li.first {
+      margin-left: 0px;
+    }
+  }
+}
+
+h2#article_title, h2#article_form_title {
+  font-size: 24pt;
+  margin-bottom: 7px;
+}
+
+div#article_body {
+  margin-top: 15px;
+
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+/* Form Styles */
+form.edit_article, form.new_article {
+  div.field {
+    height: 20px;
+
+    label {
+      float: left;
+      width: 110px;
+      margin-right: 30px;
+      font-size: 14pt;
+    }
+    input {
+      float: left;
+    }
+    textarea {
+      float: left;
+    }
+
+    a {
+      margin-left: 3px;
+    }
+
+    img {
+      position: relative;
+      top: 3px;
+      padding-right: 3px;
+    }
+  }
+}
