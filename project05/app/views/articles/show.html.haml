@@ -9,7 +9,6 @@
     %li= mailto_link
 .clear
 %h2#article_title= @article.title
-%p#article_byline
-  = "by #{@article.author.name}. #{pluralize(@article.edits, 'edit')} since #{I18n.l @article.created_at.to_date}."
+%p#article_byline= article_byline
 #article_body
   = raw RedCloth.new(@article.body).to_html

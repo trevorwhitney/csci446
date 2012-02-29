@@ -26,4 +26,9 @@ module ArticlesHelper
       :title => 'Return to previous page'
   end
 
+  def article_byline
+    author_link = link_to(@article.author.name, @article.author, :title => 'View author')
+    "by #{author_link}. #{pluralize(@article.edits, 'edit')} since #{I18n.l @article.created_at.to_date}.".html_safe
+  end
+
 end
