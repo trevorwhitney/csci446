@@ -17,3 +17,6 @@
 /log/*.log
 /tmp
 /.rvmrc
+
+# Ignore author images
+/public/assets/authors
