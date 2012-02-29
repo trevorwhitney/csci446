@@ -1,6 +1,6 @@
 class Author < ActiveRecord::Base
   has_many :articles
-  has_attached_file :photo, styles: { small: "150x150>" },
+  has_attached_file :photo, styles: { small: "300x300>" },
   					url: "authors/:id/:style/:basename.:extension",
   					path: ":rails_root/public/assets/authors/:id/:style/:basename.:extension"
 

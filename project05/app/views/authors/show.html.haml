@@ -3,7 +3,30 @@
 %p#notice= notice
 %nav#author_nav
   %ul
-    %li.first= list_authors_link
+    %li.first= back_to_articles_link
+    %li= list_authors_link
     %li= edit_link
-#author_image= image_tag @author.photo.url(:small)
-#author_info= @author.name
+%h2#author_title= "Viewing #{@author.name}"
+#author_display
+  #author_image= image_tag @author.photo.url(:small)
+%h2= "#{@author.name}'s #{@author.articles.count > 1 ? 'article'.pluralize : 'article'}"
+#articles_table
+  %p.title.header Title
+  %p.author.header Author
+  %p.body.header Body
+  %p.created_at.header Creation Date
+  .buttons &nbsp;
+  - @articles.each do |article|
+    %span{:class => cycle('article_line_odd', 'article_line_even')}
+    %p.title= truncate(article.title, :length => 25)
+    %p.author= truncate(article.author.name, :length => 20)
+    %p.body= truncate(article.body, :length => 50)
+    %p.created_at= l article.created_at.to_date, :format => :default
+    .buttons
+      = link_to image_tag('magnifier.png'), article, :title => 'View article'
+      = link_to image_tag('page_edit.png'), edit_article_path(article), :title => 'Edit article'
+      = link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete, :title => 'Delete article'
+.clear
+#article_count
+  = page_entries_info @articles
+= will_paginate @articles, class: "articles_pagination"

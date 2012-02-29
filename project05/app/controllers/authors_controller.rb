@@ -14,6 +14,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1.json
   def show
     @author = Author.find(params[:id])
+    @articles = @author.articles.paginate per_page: 10, page: params[:page]
 
     respond_to do |format|
       format.html # show.html.erb
