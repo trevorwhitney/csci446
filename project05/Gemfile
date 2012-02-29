@@ -47,3 +47,9 @@ gem 'pry'
 gem 'haml'
 gem 'hpricot'
 gem 'erb2haml'
+
+# will_paginate for results
+gem 'will_paginate'
+
+# paperclip for author photos
+gem 'paperclip'
