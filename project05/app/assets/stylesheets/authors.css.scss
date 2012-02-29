@@ -51,16 +51,68 @@ h2#author_title, h2#author_form_title {
 }
 
 /* Index View */
-tr{
-  height: 2em;
+#author_list_header {
+  width: 960px;
+
+  h1 {
+    float: left;
+  }
+
+  a {
+    float: right;
+  }
 }
 
-tr.author_line_odd {
-  background: #EEE;
+ul#author_list {
+  width: 960px;
+  list-style-type: none;
+  margin-top: 10px;
+
+  li.author_item {
+    float: left;
+    margin-left: 24px;
+    margin-bottom: 10px;
+  }
+
+  li.first {
+    margin-left: 0px;
+  }
+
+  .author_image img {
+      width: 300px;
+      border: 2px #000 solid;
+  }
+
+  .author_image img:hover {
+      border: 2px #48E solid;
+  }
+
+  span.author_name {
+    float: left;
+    width: 240px;
+    font-size: 14pt;
+  }
+
+  .author_actions {
+    width: 60px;
+    float: right;
+  }
 }
 
-tr.author_line_even {
-  background: #FFF;
+/* Show View */
+#author_display {
+  width: 960px;
+
+  #author_image {
+    width: 815px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+
+    img {
+      width: 300px;
+      display: block;
+    }
+  }
 }
 
 /* Form Styles */

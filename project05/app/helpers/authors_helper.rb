@@ -25,4 +25,12 @@ module AuthorsHelper
     title: 'Edit this author'
   end
 
+  def author_class(index)
+    if index % 3 == 0
+      "author_item first"
+    else
+      "author_item"
+    end
+  end
+
 end

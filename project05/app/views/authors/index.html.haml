@@ -3,15 +3,16 @@
 %nav#author_nav
   %ul
     %li.first= back_to_articles_link
-%h1 Listing authors
-%table#authors_table
-  %tr
-    %th Name
-    %td{:colspan => "3"}= new_author_link
-  - @authors.each do |author|
-    %tr{:class => cycle('author_line_odd', 'author_line_even')}
-      %td= image_tag author.photo.url(:small)
-      %td= author.name
-      %td= link_to image_tag('magnifier.png'), author, title: 'View author'
-      %td= link_to image_tag('page_edit.png'), edit_author_path(author), title: 'Edit author'
-      %td= link_to image_tag('bin.png'), author, confirm: 'Are you sure?', method: :delete, title: 'Delete author'
+#author_list_header
+  %h1 Listing authors
+  = new_author_link
+.clear
+%ul#author_list
+  - @authors.each_with_index do |author, index|
+    %li{:class => "#{author_class(index)}"}  
+      .author_image= link_to image_tag(author.photo.url(:small)), author, title: 'View author'
+      %span.author_name= link_to author.name, author, title: 'View author'
+      .author_actions
+        = link_to image_tag('magnifier.png'), author, title: 'View author'
+        = link_to image_tag('page_edit.png'), edit_author_path(author), title: 'Edit author'
+        = link_to image_tag('bin.png'), author, confirm: 'Are you sure?', method: :delete, title: 'Delete author'
