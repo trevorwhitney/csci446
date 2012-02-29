@@ -5,13 +5,12 @@
   %h1 All the World's articles
   = link_to image_tag('add.png') + 'New Article', new_article_path, :title => "Create a new article"
 .clear
-#article_table_header
+#article_table
   %p.title.header Title
   %p.author.header Author
   %p.body.header Body
   %p.created_at.header Creation Date
   .buttons &nbsp;
-#article_table_content
   - @articles.each do |article|
     %span{:class => cycle('article_line_odd', 'article_line_even')}
     %p.title= truncate(article.title, :length => 25)
@@ -22,11 +21,7 @@
       = link_to image_tag('magnifier.png'), article, :title => 'View article'
       = link_to image_tag('page_edit.png'), edit_article_path(article), :title => 'Edit article'
       = link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete, :title => 'Delete article'
-#article_table_footer
-  %p.title.footer
-  %p.author.footer
-  %p.body.footer
-  %p.created_at.footer
-  .buttons
+.clear
 #article_count
-  = pluralize(Article.count, 'article')
+  = page_entries_info @articles
+= will_paginate @articles, class: "articles_pagination"

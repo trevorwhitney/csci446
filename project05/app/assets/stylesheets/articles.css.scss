@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* Index Styles */
-$table_width: 900px;
 $title_width: 180px;
 $author_width: 125px;
 $body_width: 325px;
@@ -11,65 +10,52 @@ $created_at_width: 140px;
 $column_padding_left: 5px;
 $column_padding_right: 5px;
 $button_width: 60px;
+$table_width: 960px;
+$table_content_width: 815px;
 $line_height: 2em;
 
 div#articles_header {
   width: $title_width + $author_width + $body_width + $created_at_width + ($column_padding_left + $column_padding_right)*4;
   padding-bottom: 40px;
-
   a {
     float: right;
     position: relative;
     top: 5px;
-    
     img {
       margin-right: 2px;
       position: relative;
       top: 2px;
     }
   }
-
   h1 {
     float: left;
   }
 }
 
-div#article_table_header, div#article_table_footer {
+div#article_table {
   width: $table_width;
   text-align: left;
-
   p.title {
     border-left: 1px #000 solid;
   }
-}
-
-div#article_table_content {
-  height: $line_height * 10;
-  width: $table_width - 2px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-
-  p.title {
-    border-left: 1px #000 solid;
+  p.last {
+    border-bottom: 1px #000 solid;
   }
-}
-
-div#article_table_container span {
+  span {
   float: left;
-}
-
-div#article_table_content p {
-  font-family: 'playtime';
-  font-size: 12pt;
-  padding-left:$column_padding_left;
-  padding-right:$column_padding_right;
-  line-height: $line_height;
-  height: $line_height;
-  border-right: 1px #000 solid;
-}
-
-div#article_table_content span, div#article_table_content p {
-  float: left;
+  }
+  p {
+    font-family: 'playtime';
+    font-size: 12pt;
+    padding-left:$column_padding_left;
+    padding-right:$column_padding_right;
+    line-height: $line_height;
+    height: $line_height;
+    border-right: 1px #000 solid;
+  }
+  p, span {
+    float: left;
+  }
 }
 
 span.article_line_odd {
@@ -112,51 +98,45 @@ p.created_at {
 }
 
 div.buttons {
-  float:right;
+  float:left;
   width:$button_width;
-  padding-right: 4px;
+  padding-left: 4px;
   line-height: $line_height;
 }
 
 div#article_count {
   font-size: 12pt;
   padding-top: 5px;
+  border-top: 1px #000 solid;
+  width: $table_content_width;
 }
 
 /* Show Styles */
 nav#article_nav {
   padding-bottom: 40px;
-
   ul {
     list-style-type: none;
-
     li {
       float: left;
       margin-left: 40px;
       font-size: 12pt;
-
       img {
         padding-right: 3px;
         position: relative;
       }
-
       img#back {
         top: 3px;
       }
-
       img#edit {
         top: 2px;
       }
-
       img#delete {
         top: 3px;
       }
-
       img#email {
         top: 4px;
       }
     }
-
     li.first {
       margin-left: 0px;
     }
@@ -170,9 +150,41 @@ h2#article_title, h2#article_form_title {
 
 div#article_body {
   margin-top: 15px;
-
   p {
     padding-bottom: 10px;
+  }
+}
+
+.articles_pagination {
+  text-align: center;
+  padding: 1em;
+  cursor: default;
+  width: $table_content_width;
+  a, span{
+    padding: 0.2em 0.3em;
+  }
+  .disabled {
+    color: #aaaaaa;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: darken(#f1f1f1, 20);
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(white, .8) 1px 1px 1px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -180,7 +192,6 @@ div#article_body {
 form.edit_article, form.new_article {
   div.field {
     height: 20px;
-
     label {
       float: left;
       width: 110px;
@@ -193,11 +204,9 @@ form.edit_article, form.new_article {
     textarea {
       float: left;
     }
-
     a {
       margin-left: 3px;
     }
-
     img {
       position: relative;
       top: 3px;
