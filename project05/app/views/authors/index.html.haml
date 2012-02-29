@@ -10,6 +10,7 @@
     %td{:colspan => "3"}= new_author_link
   - @authors.each do |author|
     %tr{:class => cycle('author_line_odd', 'author_line_even')}
+      %td= image_tag author.photo.url(:small)
       %td= author.name
       %td= link_to image_tag('magnifier.png'), author, title: 'View author'
       %td= link_to image_tag('page_edit.png'), edit_author_path(author), title: 'Edit author'
