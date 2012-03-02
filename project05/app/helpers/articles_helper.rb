@@ -31,4 +31,17 @@ module ArticlesHelper
     "by #{author_link}. #{pluralize(@article.edits, 'edit')} since #{I18n.l @article.created_at.to_date}.".html_safe
   end
 
+  def list_authors_link
+    link_to image_tag('user.png', :id => 'users') + 'list all authors', authors_path,
+      :title => 'Return to all authors list'
+  end
+
+  def article_title(article)
+    link_to(truncate(article.title, length: 25), article, title: 'View article')
+  end
+
+  def author_name(article)
+    link_to(truncate(article.author.name, :length => 20), article.author, title: 'View author')
+  end
+
 end

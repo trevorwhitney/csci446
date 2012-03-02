@@ -3,6 +3,7 @@
 %p#notice= notice
 #articles_header
   %h1 All the World's articles
+  = list_authors_link
   = link_to image_tag('add.png') + 'New Article', new_article_path, :title => "Create a new article"
 .clear
 #articles_table
@@ -13,8 +14,8 @@
   .buttons &nbsp;
   - @articles.each do |article|
     %span{:class => cycle('article_line_odd', 'article_line_even')}
-    %p.title= truncate(article.title, :length => 25)
-    %p.author= truncate(article.author.name, :length => 20)
+    %p.title= article_title(article)
+    %p.author= author_name(article)
     %p.body= truncate(article.body, :length => 50)
     %p.created_at= l article.created_at.to_date, :format => :default
     .buttons

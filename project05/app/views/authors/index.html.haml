@@ -3,9 +3,9 @@
 %nav#author_nav
   %ul
     %li.first= back_to_articles_link
+    %li= new_author_link
 #author_list_header
   %h1 Listing authors
-  = new_author_link
 .clear
 %ul#author_list
   - @authors.each_with_index do |author, index|
