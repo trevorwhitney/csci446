@@ -82,24 +82,30 @@ ul#author_list {
     margin-left: 0px;
   }
 
-  .author_image img {
+  .author_image {
+    height: 300px;
+
+    img {
       width: 300px;
       border: 2px #000 solid;
-  }
+    }
 
-  .author_image img:hover {
+    img:hover {
       border: 2px #48E solid;
+    }
   }
 
   span.author_name {
     float: left;
     width: 240px;
     font-size: 14pt;
+    margin-top: 7px;
   }
 
   .author_actions {
     width: 60px;
     float: right;
+    margin-top: 7px;
   }
 }
 
