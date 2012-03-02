@@ -15,7 +15,7 @@ module AuthorsHelper
       :title => 'Return to all articles list'
   end
 
-  def back_link
+  def author_back_link
     link_to image_tag('arrow_left.png', :id => 'back') + 'back', session[:author_previous],
       :title => 'Return to previous page'
   end
@@ -25,7 +25,7 @@ module AuthorsHelper
       title: 'Create new author'
   end
 
-  def edit_link
+  def edit_author_link
     link_to image_tag('user_edit.png', :id => 'edit_user') + 'edit', edit_author_path(@author),
     title: 'Edit this author'
   end
