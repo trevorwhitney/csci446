@@ -3,6 +3,15 @@ require 'test_helper'
 class AuthorsControllerTest < ActionController::TestCase
   setup do
     @author = authors(:robert)
+    @valid_photo = File.new("test/fixtures/onion.jpg")
+    @invalid_photo = File.new("test/fixtures/lena.bmp")
+
+    @author.photo = @valid_photo
+  end
+
+  teardown do
+    @valid_photo.close
+    @invalid_photo.close
   end
 
   test "should get index" do
