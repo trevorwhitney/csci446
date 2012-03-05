@@ -38,4 +38,14 @@ module AuthorsHelper
     end
   end
 
+  def author_actions(author)
+    actions = link_to image_tag('magnifier.png'), author, title: 'View author'
+    actions += "\n"
+    actions += link_to image_tag('page_edit.png'), edit_author_path(author),
+          title: 'Edit author'
+    actions += "\n"
+    actions += link_to image_tag('bin.png'), author, confirm: 'Are you sure?',
+          method: :delete, title: 'Delete author'
+  end
+
 end

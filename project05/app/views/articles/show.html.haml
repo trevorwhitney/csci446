@@ -10,5 +10,4 @@
 .clear
 %h2#article_title= @article.title
 %p#article_byline= article_byline
-#article_body
-  = raw RedCloth.new(@article.body).to_html
+#article_body= raw RedCloth.new(@article.body).to_html

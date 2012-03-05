@@ -12,7 +12,4 @@
     %li{:class => "#{author_class(index)}"}  
       .author_image= link_to image_tag(author.photo.url(:small)), author, title: 'View author'
       %span.author_name= link_to author.name, author, title: 'View author'
-      .author_actions
-        = link_to image_tag('magnifier.png'), author, title: 'View author'
-        = link_to image_tag('page_edit.png'), edit_author_path(author), title: 'Edit author'
-        = link_to image_tag('bin.png'), author, confirm: 'Are you sure?', method: :delete, title: 'Delete author'
+      .author_actions= author_actions(author).html_safe

@@ -5,6 +5,11 @@ module ArticlesHelper
       articles_path, :title => 'Return to all articles list'
   end
 
+  def new_article_link
+    link_to image_tag('add.png') + 'New Article', new_article_path, 
+      :title => "Create a new article"
+  end
+
   def edit_article_link
     link_to image_tag('page_edit.png', :id => 'edit') + 'edit', edit_article_path(@article),
       :title => 'Edit this article'
@@ -36,12 +41,18 @@ module ArticlesHelper
       :title => 'Return to all authors list'
   end
 
-  def article_title(article)
-    link_to(truncate(article.title, length: 25), article, title: 'View article')
-  end
-
   def author_name(article)
     link_to(truncate(article.author.name, :length => 20), article.author, title: 'View author')
+  end
+
+  def author_selection_collection(authors)
+    collection_select(:article, :author_id, authors, 
+      :id, :name, {:prompt => 'Please select an author...'})
+  end
+
+  def create_author_link
+    link_to image_tag('add.png') + "Create a new author", 
+      new_author_path, title: 'Create an author'
   end
 
 end

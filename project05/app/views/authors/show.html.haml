@@ -18,14 +18,11 @@
   .buttons &nbsp;
   - @articles.each do |article|
     %span{:class => cycle('article_line_odd', 'article_line_even')}
-    %p.title= truncate(article.title, :length => 25)
+    %p.title= article_title(article)
     %p.author= truncate(article.author.name, :length => 20)
     %p.body= truncate(article.body, :length => 50)
     %p.created_at= l article.created_at.to_date, :format => :default
-    .buttons
-      = link_to image_tag('magnifier.png'), article, :title => 'View article'
-      = link_to image_tag('page_edit.png'), edit_article_path(article), :title => 'Edit article'
-      = link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete, :title => 'Delete article'
+    .buttons= buttons(article).html_safe
 .clear
 #article_count
   = page_entries_info @articles
