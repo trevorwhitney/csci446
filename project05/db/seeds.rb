@@ -6,8 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Author.transaction do
-  2.times do |i|
-    Author.create :name => "Author #{i}"
+	authors = { :Gisele_Bundchen => "db/seeds/gisele-bundchen.jpg",
+							:Tom_Brady => "db/seeds/tom-brady.jpg",
+							:Julia_Mancuso => "db/seeds/julia-mancuso.jpg",
+							:Bode_Miller => "db/seeds/bode-miller.jpg" }
+  authors.each do |key, value|
+    author = Author.new name: key.to_s.gsub(/_+/, " "), photo: File.new(value)
+    author.save
   end
 end
 
@@ -22,6 +27,6 @@ Tattooed skateboard pork belly, lo-fi banh mi pop-up consectetur biodiesel volup
 
 Trust fund irure laboris, kale chips readymade mollit leggings food truck skateboard bespoke thundercats pork belly master cleanse 3 wolf moon in. Elit esse cosby sweater, terry richardson typewriter occaecat pariatur cillum nulla. Pickled veniam mcsweeney's tattooed excepteur, Austin PBR. Fixie cupidatat bushwick cardigan ennui. In consequat occaecat, non wes anderson mustache stumptown tumblr DIY post-ironic officia sriracha aute pop-up lo-fi. Dolor odd future shoreditch whatever, proident terry richardson labore pitchfork placeat nulla keytar pariatur. Austin kale chips pitchfork, wolf selvage chillwave brunch quis food truck shoreditch.
       },
-      :author_id => i % 2 + 1)
+      :author_id => i % 4 + 1)
   end
 end
