@@ -20,23 +20,6 @@ class Admin::RolesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "shouldn't get new for guest or member" do
-    #guest
-    get :new
-    assert_response :redirect
-
-    #member
-    login_member
-    get :new
-    assert_response :redirect
-  end
-
-  test "should get new for admin" do
-    login_admin
-    get :new
-    assert_response :success
-  end
-
   test "shouldn't create for guest or member" do
     #guest
     post :create
