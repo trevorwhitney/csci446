@@ -23,7 +23,11 @@ class User < ActiveRecord::Base
 
   def last_login(current_time)
     now = current_time.strftime("%s").to_i
-    last_login = last_login_at.strftime("%s").to_i
+    if last_login_at.nil?
+      return "Never"
+    else
+      last_login = last_login_at.strftime("%s").to_i
+    end
 
     minute = 1.minute.to_i
     hour = 1.hour.to_i
