@@ -28,3 +28,23 @@ ul.admin_nav
 
 .success
   +success
+
+a.button
+  $button-border-color: #dedede
+  $button-background-color: rgb(176, 196, 222)
+  $button-highlight-color: #f5f5f5
+  $button-font-color: #565656
+  +button-button
+  +button-hover-colors($button-font-color, $button-background-color, $button-border-color, $button-highlight-color)
+  color: #000
+  border-color: #000
+
+input[type=submit], input.submit
+  $button-border-color: #dedede
+  $button-background-color: rgb(176, 196, 222)
+  $button-highlight-color: #f5f5f5
+  $button-font-color: #565656
+  +button-button
+  +button-hover-colors($button-font-color, $button-background-color, $button-border-color, $button-highlight-color)
+  color: #000
+  border-color: #000
