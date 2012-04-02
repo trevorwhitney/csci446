@@ -1,7 +1,7 @@
 %h2= @role.name
 .description= @role.description
 
-%span= link_to "Edit", edit_admin_role_path(@role), :class => 'edit_role'
+%span= link_to "Edit", edit_admin_role_path(@role), :class => 'button'
 
 %h3= "List of #{@role.name.pluralize}"
 %table.users_table
