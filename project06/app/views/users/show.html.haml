@@ -1,0 +1,8 @@
+%h1 Showing the User
+%ol.user_list
+  %li= @user.username
+  %li= @user.full_name
+  %li= @user.email
+  %li Photo placeholder
+  %li= user_roles
+  %li= link_to "Edit", @edit_user_path

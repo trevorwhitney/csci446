@@ -1,0 +1,30 @@
+@import "partials/base"
+@import "users"
+@import "admin/roles"
+
+#masthead
+  text-align: center
+
+form
+  +blueprint-form
+
+//Forms
+.form_list
+  +no-bullets
+  li
+    width: 500px
+    label
+      width: 175px
+      display: inline-block
+
+ul.admin_nav
+  +no-bullets
+  +horizontal-list
+  display: block
+  border: 1px solid #000
+
+.notice
+  +notice
+
+.success
+  +success

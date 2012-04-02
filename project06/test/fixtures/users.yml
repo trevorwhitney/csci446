@@ -1,0 +1,11 @@
+admin:
+  first_name: Joe
+  last_name: Admin
+  username: administrator
+  email: JoeAdmin@gamez.com
+
+member:
+  first_name: Joe
+  last_name: Member
+  username: member
+  email: JoeMember@gamez.com

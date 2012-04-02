@@ -1,0 +1,3 @@
+h1. Gamez
+
+p. This is the Gamez application. It demonstrates basic authentication and roles in a multi-user system.
