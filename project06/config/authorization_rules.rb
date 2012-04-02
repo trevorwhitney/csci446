@@ -14,7 +14,7 @@ authorization do
     has_permission_on :members_games,
       :to => [:index, :show, :edit, :create, :update, :destroy, :new]
     has_permission_on :members_users,
-      :to => [:show, :edit, :update]
+      :to => [:show, :edit, :update, :index]
   end
 
 end
