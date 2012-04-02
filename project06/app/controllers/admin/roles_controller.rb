@@ -13,6 +13,19 @@ class Admin::RolesController < Admin::AdminController
   end
 
   def create
+    @role = Role.new(params[:role])
+
+    if @role.save
+      respond_to do |format|
+        format.html { redirect_to admin_roles_path, 
+          :notice => "Role was sucessfully created."}
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to new_admin_role_path,
+          :error => "Role could not be created." }
+      end
+    end
   end
 
   def edit
@@ -32,6 +45,4 @@ class Admin::RolesController < Admin::AdminController
     end
   end
 
-  def destroy
-  end
 end
