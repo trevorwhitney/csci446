@@ -3,6 +3,7 @@ class Admin::UsersController < Admin::AdminController
   
   def new
   	@user = User.new
+    @form_url = :admin_users
     render 'users/new'
   end
 
