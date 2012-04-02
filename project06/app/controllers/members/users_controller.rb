@@ -23,9 +23,21 @@ class Members::UsersController < Members::MembersController
   end
 
   def show
+    if current_user.is_admin?
+      return redirect_to admin_user_path(current_user)
+    end
+
     @user = current_user
     @edit_user_path = members_edit_profile_path
     render 'users/show'
+  end
+
+  def index
+    if current_user.is_admin?
+      redirect_to admin_users_path
+    else
+      redirect_to members_profile_path
+    end
   end
 
 end
