@@ -29,6 +29,9 @@ ul.admin_nav
 .success
   +success
 
+.error
+  +error
+
 a.button
   $button-border-color: #dedede
   $button-background-color: rgb(176, 196, 222)
@@ -48,3 +51,7 @@ input[type=submit], input.submit
   +button-hover-colors($button-font-color, $button-background-color, $button-border-color, $button-highlight-color)
   color: #000
   border-color: #000
+
+.field_with_errors
+  color: rgb(141, 31, 23)
+  display: inline-block

@@ -1,4 +1,6 @@
-%h1 Login
+%h2 Login
+- @user_session.errors.each do |attr, message|
+  %p.error= "#{attr} #{message}"
 = form_for @user_session do |form|
   %ol.form_list
     %li
