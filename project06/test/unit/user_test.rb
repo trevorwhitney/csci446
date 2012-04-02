@@ -1,35 +1,15 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
-  def setup
-    %w{Administrator Member}.each do |role|
-      Role.create(:name => role)
-    end
-
-    @admin = users(:admin)
-    @admin.password = "password"
-    @admin.password_confirmation = "password"
-
-    @member = users(:member)
-    @member.password = "password"
-    @member.password_confirmation = "password"
-
-    @admin.save
-    @member.save
-  end
 
   test "is_admin?" do
-    assert @admin.is_admin?
-    assert !@member.is_admin?
+    assert users(:admin).is_admin?
+    assert !users(:member).is_admin?
   end
 
 
   test "last_login" do
-    user = @admin
+    user = users(:admin)
 
     #test minutes ago
     user.last_login_at = 2.minutes.ago
@@ -61,16 +41,16 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "full_name" do
-    assert_equal "Joe Admin", @admin.full_name
-    assert_equal "Joe Member", @member.full_name
+    assert_equal "Joe Admin", users(:admin).full_name
+    assert_equal "Joe Member", users(:member).full_name
   end
 
   test "role_symbols" do
-    assert_equal [:administrator], @admin.role_symbols
-    assert_equal [:member], @member.role_symbols
+    assert_equal [:administrator], users(:admin).role_symbols
+    assert_equal [:member], users(:member).role_symbols
 
-    @admin.roles << Role.find_by_name("member")
-    assert_equal [:administrator, :member], @admin.role_symbols
+    users(:admin).roles << Role.find_by_name("member")
+    assert_equal [:administrator, :member], users(:admin).role_symbols
   end
 
 end
