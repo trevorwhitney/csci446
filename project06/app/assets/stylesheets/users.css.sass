@@ -7,10 +7,9 @@
   font-size: 12px
 
 .users_table
-  table
-    $table-color: rgb(176, 196, 222)
-    $alt-table-color: adjust-hue($table-color, -16deg)
-    +table-scaffolding
-    +inner-table-borders(1px, darken($table-color, 40%))
-    +outer-table-borders(2px)
-    +alternating-rows-and-columns($table-color, $alt-table-color, #111)
+  $table-color: rgb(176, 196, 222)
+  $alt-table-color: adjust-hue($table-color, -16deg)
+  +table-scaffolding
+  +inner-table-borders(1px, darken($table-color, 40%))
+  +outer-table-borders(2px)
+  +alternating-rows-and-columns($table-color, $alt-table-color, #111)
