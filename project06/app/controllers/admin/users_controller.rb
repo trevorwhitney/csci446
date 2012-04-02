@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::AdminController
   		flash[:notice] = "Registration suceeded."
   		redirect_to root_url
   	else
-  		render :action => 'new'
+  		redirect_to new_admin_user_path
   	end
   end
 
@@ -26,7 +26,7 @@ class Admin::UsersController < Admin::AdminController
           notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_admin_user_path(@user) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
