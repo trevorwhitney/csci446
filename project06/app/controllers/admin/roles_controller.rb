@@ -5,9 +5,6 @@ class Admin::RolesController < Admin::AdminController
     @roles = Role.all
   end
 
-  def new
-  end
-
   def show
     @role = Role.find(params[:id], :include => :users)
   end
