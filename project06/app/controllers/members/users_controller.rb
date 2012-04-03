@@ -10,7 +10,8 @@ class Members::UsersController < Members::MembersController
           notice: "Your profile was sucessfully updated." }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        @form_url = members_update_profile_path(current_user)
+        format.html { render action: "edit", template: 'users/edit'}
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

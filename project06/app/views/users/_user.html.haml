@@ -1,6 +1,6 @@
 = form_for @user, :url => @form_url do |form|
-	- @user.errors.each do |error|
-		= error
+	- @user.errors.each do |attribute, msg|
+		%p.error= "#{attribute} #{msg}"
 	%ol.form_list
 		%li
 			= form.label :username

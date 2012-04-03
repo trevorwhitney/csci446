@@ -23,10 +23,11 @@ class Admin::UsersController < Admin::AdminController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to admin_users_path, 
-          notice: 'User was successfully updated.' }
+          success: 'User was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to edit_admin_user_path(@user) }
+        @form_url = admin_user_path
+        format.html { render :action => 'edit', :template => 'users/edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
