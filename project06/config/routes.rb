@@ -1,17 +1,5 @@
 Gamez::Application.routes.draw do
 
-  get "roles/index"
-
-  get "roles/new"
-
-  get "roles/create"
-
-  get "roles/edit"
-
-  get "roles/update"
-
-  get "roles/destroy"
-
   resources :user_sessions, :only => [:new, :create, :destroy]
 
   match '/login' => 'user_sessions#new', :as => :login
