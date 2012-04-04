@@ -13,9 +13,10 @@ authorization do
 
   role :member do
     has_permission_on :members_games,
-      :to => [:index, :show, :create, :destroy, :new]
-    has_permission_on :members_games, :to => [:edit, :update] do
-      if attribute :user => is { current_user }
+      :to => [:index, :show, :create, :new]
+    has_permission_on :members_games, :to => [:edit, :update, :destroy] do
+        if_attribute :user => is { user }
+      end 
     has_permission_on :members_users,
       :to => [:show, :edit, :update, :index]
     has_permission_on :games, :to => :index
