@@ -7,6 +7,7 @@ class Members::GamesController < Members::MembersController
     end
 
     @games = Game.paginate :per_page => 10, :page => params[:page]
+    render 'games/index'
   end
 
 end
