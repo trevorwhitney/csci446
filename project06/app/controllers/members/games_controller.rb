@@ -6,7 +6,8 @@ class Members::GamesController < Members::MembersController
       return redirect_to admin_users_path
     end
 
-    @games = Game.paginate :per_page => 10, :page => params[:page]
+    @games = Game.paginate :per_page => 10, :page => params[:page],
+      :include => :rating
     render 'games/index'
   end
 
