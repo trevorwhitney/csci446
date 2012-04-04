@@ -10,6 +10,7 @@ Gamez::Application.routes.draw do
   namespace :admin do
     resources :users
     resources :roles
+    resources :games
     root :controller => 'admin', :action => 'index'
   end
 
