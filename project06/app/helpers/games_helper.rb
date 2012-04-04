@@ -10,4 +10,14 @@ module GamesHelper
     end
   end
 
+  def new_game
+    if current_user.nil?
+      return
+    elsif current_user.is_admin?
+      link_to "Add a game", new_admin_game_path
+    else
+      link_to "Add a game", new_members_game_path
+    end
+  end
+
 end
