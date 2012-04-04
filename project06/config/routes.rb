@@ -1,17 +1,18 @@
 Gamez::Application.routes.draw do
 
   resources :user_sessions, :only => [:new, :create, :destroy]
+  resources :games
 
   match '/login' => 'user_sessions#new', :as => :login
   match '/logout' => 'user_sessions#destroy', :as => :logout
 
-  root :to => 'user_sessions#new'
+  root :to => "games#index"
 
   namespace :admin do
     resources :users
     resources :roles
     resources :games
-    root :controller => 'admin', :action => 'index'
+    root :controller => 'games', :action => 'index'
   end
 
   namespace :members do
