@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :assignments
   has_many :roles, :through => :assignments
+  has_many :games
 
   def role_symbols
     roles.map do |role|

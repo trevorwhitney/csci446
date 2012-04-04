@@ -47,6 +47,8 @@ end
 Game.transaction do
   (1..100).each do |i|
     rating = Rating.find((i%4) + 1)
-    Game.create(:title => "Finaly Fantasy #{i}", :rating => rating)
+    user = User.find((i%2) + 1)
+    Game.create(:title => "Finaly Fantasy #{i}", :rating => rating, 
+      :user => user)
   end
 end
