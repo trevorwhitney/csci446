@@ -1,8 +1,35 @@
+$table-color: rgb(176, 196, 222)
+
 .games_table
-  $table-color: rgb(176, 196, 222)
   $alt-table-color: adjust-hue($table-color, -16deg)
   +table-scaffolding
   +inner-table-borders(1px, darken($table-color, 40%))
   +outer-table-borders(2px)
   +alternating-rows-and-columns($table-color, $alt-table-color, #111)
   border-spacing: 0px
+
+.games_pagination
+  text-align: center
+  padding: 1em
+  cursor: default
+  a, span
+    padding: 0.2em 0.3em 
+  .disabled 
+    color: #aaaaaa
+  .current 
+    font-style: normal
+    font-weight: bold
+    background-color: $table-color
+    display: inline-block
+    width: 1.4em
+    height: 1.4em
+    line-height: 1.5
+    -moz-border-radius: 1em
+    -webkit-border-radius: 1em
+    border-radius: 1em
+    text-shadow: rgba(white, .8) 1px 1px 1px
+  a 
+    text-decoration: none
+    color: black
+    &:hover, &:focus 
+      text-decoration: underline

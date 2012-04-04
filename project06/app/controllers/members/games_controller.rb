@@ -6,7 +6,7 @@ class Members::GamesController < Members::MembersController
       return redirect_to admin_users_path
     end
 
-    @games = Game.all
+    @games = Game.paginate :per_page => 10, :page => params[:page]
   end
 
 end
