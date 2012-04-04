@@ -1,6 +1,5 @@
 .games_nav
-  %h2 My Gamez
-  = new_game
+  = games_nav
 
 %table.games_table
   %thead
@@ -13,5 +12,5 @@
       %tr
         %td= game_title(game)
         %td= game.rating.title
-        %td= game.created_at
+        %td= created_at_and_by(game)
 =will_paginate @games, :class => "games_pagination"
