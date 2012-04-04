@@ -21,5 +21,23 @@ module ApplicationHelper
       render "admin/admin_nav"
     end
   end
+
+  def render_flash
+    if flash.present?
+      render 'flash/messages'
+    end
+  end
+
+  def show_success
+    raw RedCloth.new("p(success). #{flash[:success]}").html
+  end
+
+  def show_error
+    raw RedCloth.new("p(error). #{flash[:error]}").html
+  end
+
+  def show_notice
+    raw RedCloth.new("p(notice). #{flash[:notice]}").html
+  end
   
 end
