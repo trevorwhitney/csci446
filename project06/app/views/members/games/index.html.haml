@@ -1,1 +1,12 @@
-%h1 The Games
+%table.games_table
+  %thead
+    %tr
+      %th Title
+      %th Rating
+      %th Date Added
+  %tbody
+    - @games.each do |game|
+      %tr
+        %td= game.title
+        %td= game.rating.title
+        %td= game.created_at
