@@ -1,0 +1,13 @@
+- @game.errors.each do |attribute, error|
+  %p.error= "#{attribute} #{error}"
+
+%ul.game_form
+  = form_for @game, :url => @form_url do |f|
+    %li
+      = f.label :title
+      = f.text_field :title
+    %li
+      = f.label :rating
+      Rating Checkboxes
+    %li= f.submit "Save"
+  
