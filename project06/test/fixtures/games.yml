@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  rating_id: 1
+oblivion:
+  title: Oblivion
+  rating: meh
+  user: admin
 
-two:
-  title: MyString
-  rating_id: 1
+skyrim:
+  title: Skyrim
+  rating: amazing
+  user: member
