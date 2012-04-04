@@ -3,8 +3,10 @@ class Members::GamesController < Members::MembersController
 
   def index
     if current_user.is_admin?
-      redirect_to admin_users_path
+      return redirect_to admin_users_path
     end
+
+    @games = Game.all
   end
 
 end
