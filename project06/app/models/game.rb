@@ -6,10 +6,23 @@ class Game < ActiveRecord::Base
 
   before_create :set_user
 
+  def self.users_games(user, page)
+    Game.where(:user_id => user.id).paginate :per_page => 10, 
+    :page => page, :include => [:rating, :user], 
+    :order => "created_at DESC"
+  end
+
+  def self.all_games(page)
+    Game.paginate :per_page => 10, :page => page,
+      :include => [:rating, :user], :order => "created_at DESC"
+  end
+
   private
 
   def set_user
-    self.user = UserSession.find.user
+    if self.user.nil?
+      self.user = UserSession.find.user
+    end
   end
 
 end

@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.paginate :per_page => 10, :page => params[:page],
-      :include => [:rating, :user]
+    @games = Game.all_games(params[:page])
     render 'games/index'
   end
 

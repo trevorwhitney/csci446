@@ -1,13 +1,14 @@
 class Members::GamesController < Members::MembersController
   before_filter :require_user
+  filter_access_to :edit, :update, :attribute_check => true
+  filter_access_to :index, :new, :create
 
   def index
     if current_user.is_admin?
       return redirect_to admin_users_path
     end
 
-    @games = Game.paginate :per_page => 10, :page => params[:page],
-      :include => :rating
+    @games = Game.users_games(current_user, params[:page])
     render 'games/index'
   end
 
