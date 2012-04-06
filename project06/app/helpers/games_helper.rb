@@ -41,4 +41,11 @@ module GamesHelper
     "#{game.created_at.strftime("%b. %-d, %Y")} by #{name}"
   end
 
+  def stats
+    unless current_user.nil?
+      "I've created #{pluralize(current_user.games_count, "game")}, " +
+        "#{current_user.percentage_rated}% of which are rated." 
+    end
+  end
+
 end
