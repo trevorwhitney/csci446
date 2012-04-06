@@ -1,0 +1,2 @@
+1. Implement game count on user model
+2. Implement percentage of games rated on user model
