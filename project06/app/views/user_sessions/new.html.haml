@@ -1,4 +1,7 @@
 %h2 Login
+%span.register
+  First time here?
+  = link_to "Register", register_path
 - @user_session.errors.each do |attribute, message|
   %p.error= "#{attribute} #{message}"
 = form_for @user_session do |form|
