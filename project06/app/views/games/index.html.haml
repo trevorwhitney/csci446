@@ -1,5 +1,6 @@
 .games_nav
   = games_nav
+=will_paginate @games, :class => "games_pagination"
 %table.games_table
   %thead
     %tr
@@ -12,4 +13,3 @@
         %td= game_title(game)
         %td= game.rating.title
         %td= created_at_and_by(game)
-=will_paginate @games, :class => "games_pagination"
