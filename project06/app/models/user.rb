@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :assignments
   has_many :games
 
+  before_create :set_default_role
+
   def role_symbols
     roles.map do |role|
       role.name.underscore.to_sym
@@ -76,6 +78,10 @@ class User < ActiveRecord::Base
   def time_ago_string(time_ago, singular_unit)
     string = pluralize(time_ago, singular_unit) + " ago"
     string.gsub(/\d+/) { |num| num.to_i.to_word }.humanize
+  end
+
+  def set_default_role
+    self.role = Role.find_by_name("Member")
   end
   
 end
