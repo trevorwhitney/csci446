@@ -1,6 +1,7 @@
 authorization do
   role :guest do
     has_permission_on :games, :to => :index
+    has_permission_on :users, :to => [:new, :create]
   end
 
   role :administrator do

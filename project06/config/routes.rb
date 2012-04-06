@@ -2,9 +2,12 @@ Gamez::Application.routes.draw do
 
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :games
+  resources :users, :only => [:new, :create]
 
   match '/login' => 'user_sessions#new', :as => :login
   match '/logout' => 'user_sessions#destroy', :as => :logout
+  match '/register', :controller => 'users', :action => 'new',
+      :as => :register
 
   root :to => "games#index"
 
