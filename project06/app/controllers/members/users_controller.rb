@@ -7,7 +7,7 @@ class Members::UsersController < Members::MembersController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to members_profile_url, 
-          notice: "Your profile was sucessfully updated." }
+          notice: "Successfull updated profile." }
         format.json { head :no_content }
       else
         @form_url = members_update_profile_path(current_user)
