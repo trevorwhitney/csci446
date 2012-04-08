@@ -1,4 +1,6 @@
-%h2 Users
+.users_header
+  %h2 Users
+  = add_user_link unless current_user.nil?
 = will_paginate @users, :class => "games_pagination"
 %table.users_table{ :cellspacing => "0" }
   %thead
@@ -13,4 +15,4 @@
         %td= link_to user.full_name, edit_admin_user_path(user)
         %td= user.username
         %td= user.last_login(Time.now)
-        %td
+        %td= user.games.size

@@ -2,7 +2,7 @@ class Admin::GamesController < Admin::AdminController
   before_filter :require_user
 
   def index
-    @games = Game.users_games(current_user, params[:page])
+    @games = Game.all_games(params[:page])
     render 'games/index'
   end
 

@@ -9,4 +9,4 @@
       %tr
         %td= link_to role.name, admin_role_path(role)
         %td= role.description
-        %td
+        %td= role.users.size

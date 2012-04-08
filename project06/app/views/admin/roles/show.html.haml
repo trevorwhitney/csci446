@@ -14,8 +14,9 @@
       %th Games
   %tbody
     - @role.users.each do |user|
-      %td= link_to user.full_name, admin_user_path(user)
-      %td= user.username
-      %td= user.email
-      %td= user.last_login(Time.now)
-      %td
+      %tr
+        %td= link_to user.full_name, admin_user_path(user)
+        %td= user.username
+        %td= user.email
+        %td= user.last_login(Time.now)
+        %td= user.games.size

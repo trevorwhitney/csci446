@@ -1,5 +1,9 @@
-1. Implement game count on user model
 2. Implement percentage of games rated on user model
-3. Implement paperclip
 4. At page 7 for spec for messages/views
 5. 'store_location' error -- http://gamez.local/members/game
+6. Roles select on user edit not working
+  -Change to checkboxes?
+  -Or only allow user to only have one role.
+7. Creator select on games edit not working/saving
+7. User edit should only show "Register" on registration
+9. Users count for roles of when new data is seeded

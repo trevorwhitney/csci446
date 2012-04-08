@@ -50,4 +50,11 @@ module UsersHelper
     link_to image_tag('user_add.png') + "Register", register_path, :class => 'button'
   end
 
+  def add_user_link
+    if current_user.is_admin?
+      link_to image_tag('add.png') + "Create new user", new_admin_user_path,
+        :class => 'button'
+    end
+  end
+
 end

@@ -25,6 +25,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def role(id)
+    self.roles << Role.find(id)
+  end
+
+  def role_ids
+    roles.map do |role|
+      role.id
+    end
+  end
+
   def is_admin?
     role_symbols.include? :administrator
   end

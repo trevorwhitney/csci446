@@ -57,4 +57,10 @@ module GamesHelper
     end
   end
 
+  def creator(f)
+    if current_user.is_admin?
+      render 'games/creator', :form => f
+    end
+  end
+
 end

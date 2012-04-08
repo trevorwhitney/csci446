@@ -6,11 +6,12 @@
     %li
       = f.label :title
       = f.text_field :title
-    %li This game was:
+    %li= f.label "This game was:"
     %li 
       %ol.ratings
         - Rating.all.each do |rating|
           %li
             = f.radio_button :rating_id, rating.id
             = f.label :rating_id, rating.title 
+    %li= creator(f) unless current_user.nil?
     %li= f.submit "Save"

@@ -2,7 +2,7 @@ class Admin::RolesController < Admin::AdminController
   before_filter :require_user
   
   def index
-    @roles = Role.all
+    @roles = Role.all :include => :users
   end
 
   def show
