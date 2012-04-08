@@ -20,7 +20,9 @@ module UsersHelper
     if current_user.nil?
       return
     elsif current_user.is_admin?
-      select("roles", "id", Role.all.map { |r| [r.name, r.id] })
+      cur_role_id = @user.role_ids.sort.first
+      select("role", "id", Role.all.map { |r| [r.name, r.id] }, 
+        :selected => cur_role_id)
     else
       user_roles
     end
@@ -28,6 +30,24 @@ module UsersHelper
 
   def user_roles
     current_user.role_symbols.compact.join(", ").to_s.humanize
+  end
+
+  def register
+    unless current_user
+      render 'users/register'
+    end
+  end
+
+  def login_link
+    link_to image_tag('door_in.png') + "Login", login_path, :class => 'button'
+  end
+
+  def logout_link
+    link_to image_tag('door_out.png') +  "Logout", logout_path, :class => 'button'
+  end
+
+  def register_link
+    link_to image_tag('user_add.png') + "Register", register_path, :class => 'button'
   end
 
 end

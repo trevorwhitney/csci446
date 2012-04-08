@@ -10,9 +10,10 @@ module ApplicationHelper
 
   def current_role_link
     if current_user.is_admin?
-      link_to "Admin", "/admin"
+      link_to image_tag('cog.png') + "Admin", "/admin", :class => 'button'
     else
-      link_to "My Games", "/members/games"
+      link_to image_tag('controller.png') + "My Games", "/members/games", 
+        :class => 'button'
     end
   end
 
