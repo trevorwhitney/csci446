@@ -11,6 +11,7 @@
     #nav
       .user_nav= render "users/actions"
       %h1#masthead= link_to "Gamez", root_url
-      = admin_nav unless current_user.nil?
-    = render_flash
-    #content= yield
+    = admin_nav unless current_user.nil?
+    #content
+      = render_flash
+      = yield

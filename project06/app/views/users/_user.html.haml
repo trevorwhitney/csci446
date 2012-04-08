@@ -1,7 +1,4 @@
-%h2 Register
-%span.register
-	Already registered?
-	= link_to "Login", login_path
+= register
 = form_for @user, :url => @form_url, :html => { :multipart => true} do |form|
 	- @user.errors.each do |attribute, msg|
 		%p.error= "#{attribute} #{msg}"

@@ -1,8 +1,8 @@
 %ul.user_actions
   - if current_user
-    %li= raw "Logged in as #{currently_logged_in_user}."
+    %li.current_user= raw "Logged in as #{currently_logged_in_user}"
     %li= current_role_link
-    %li= link_to "Logout", logout_path
+    %li= logout_link
   - else
-    %li= link_to "Register", register_path
-    %li= link_to "Login", login_path
+    %li= register_link
+    %li= login_link

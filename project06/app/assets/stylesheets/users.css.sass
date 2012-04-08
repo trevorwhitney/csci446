@@ -5,6 +5,24 @@
   +horizontal-list
   float: right
   font-size: 12px
+  height: 50px
+  line-height: 3.7em
+
+.current_user
+  margin: 0.7em 0.5em 0.7em 0
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif
+  font-size: 100%
+  line-height: 130%
+  font-weight: bold
+  text-decoration: none
+  width: auto
+  padding: 4px 10px 3px 7px
+  color: #000
+  a
+    text-decoration: none
+    color: #000
+    &:hover
+      color: rgb(176, 196, 222)
 
 .users_table
   $table-color: rgb(176, 196, 222)
@@ -13,6 +31,8 @@
   +inner-table-borders(1px, darken($table-color, 40%))
   +outer-table-borders(2px)
   +alternating-rows-and-columns($table-color, $alt-table-color, #111)
+  margin: 0 auto
+  width: 100%
 
 ol.user_profile
   +no-bullets
