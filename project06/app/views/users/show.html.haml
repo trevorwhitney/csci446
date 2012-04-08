@@ -1,5 +1,6 @@
 %h2= "Profile for #{@user.username}" 
 %ol.user_profile
+  %li.photo= image_tag @user.photo.url(:small)
   %li
     %p.bold Name:
     %p= @user.full_name

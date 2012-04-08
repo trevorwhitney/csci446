@@ -46,7 +46,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def index
-  	@users = User.all
+  	@users = User.all_users(params[:page])
     render 'users/index'
   end
 end

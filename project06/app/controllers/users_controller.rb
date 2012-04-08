@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       respond_to do |format|
-        format.html { redirect_to login_url, 
+        format.html { redirect_to root_url, 
           :flash => { :success => "User #{@user.username} sucessfully created."}
         }
       end

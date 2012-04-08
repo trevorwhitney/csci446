@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
 
   before_create :set_default_role
 
+  def self.all_users(page)
+    User.paginate :per_page => 10, :page => page,
+      :order => "last_name ASC"
+  end
+
   def role_symbols
     roles.map do |role|
       role.name.underscore.to_sym
@@ -85,7 +90,7 @@ class User < ActiveRecord::Base
   end
 
   def set_default_role
-    self.role = Role.find_by_name("Member")
+    self.roles << Role.find_by_name("Member")
   end
   
 end
