@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408152829) do
+ActiveRecord::Schema.define(:version => 20120408194910) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(:version => 20120408152829) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.text     "description"
+    t.integer  "users_count", :default => 0
   end
 
   create_table "users", :force => true do |t|
@@ -51,12 +52,13 @@ ActiveRecord::Schema.define(:version => 20120408152829) do
     t.string   "persistence_token"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "games_count",        :default => 0
   end
 
 end
