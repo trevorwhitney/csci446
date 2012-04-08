@@ -32,9 +32,11 @@ module GamesHelper
     if current_user.nil?
       return
     elsif current_user.is_admin?
-      link_to "Add a game", new_admin_game_path
+      link_to image_tag('add.png') + "Add a game", new_admin_game_path,
+        :class => 'button'
     else
-      link_to "Add a game", new_members_game_path
+      link_to image_tag('add.png') + "Add a game", new_members_game_path,
+        :class => 'button'
     end
   end
 

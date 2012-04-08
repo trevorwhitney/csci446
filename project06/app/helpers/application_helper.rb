@@ -23,6 +23,21 @@ module ApplicationHelper
     end
   end
 
+  def admin_nav_games_link
+    link_to image_tag('controller.png') + "Games", "/admin", 
+      :class => 'button'
+  end
+
+  def admin_nav_users_link
+    link_to image_tag('user.png') + "Users", "/admin/users",
+      :class => 'button'
+  end
+
+  def admin_nav_roles_link
+    link_to image_tag('group.png') + "Roles", "/admin/roles", 
+      :class => 'button'
+  end
+
   def render_flash
     if flash.present?
       render 'flash/messages'
