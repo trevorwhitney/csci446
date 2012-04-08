@@ -2,3 +2,4 @@
 2. Implement percentage of games rated on user model
 3. Implement paperclip
 4. At page 7 for spec for messages/views
+5. 'store_location' error -- http://gamez.local/members/game

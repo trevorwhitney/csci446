@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :assignments
   has_many :games
 
+  has_attached_file :photo, styles: { small: "300x300#" },
+            url: "authors/:id/:style/:basename.:extension",
+            path: ":rails_root/public/assets/authors/:id/:style/:basename.:extension"
+
   before_create :set_default_role
 
   def role_symbols
