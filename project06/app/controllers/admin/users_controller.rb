@@ -27,7 +27,10 @@ class Admin::UsersController < Admin::AdminController
         format.json { head :no_content }
       else
         @form_url = admin_user_path
-        format.html { render :action => 'edit', :template => 'users/edit' }
+        format.html do 
+          flash[:error] = 'Could not save profile.'
+          render :action => 'edit', :template => 'users/edit'
+        end
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
