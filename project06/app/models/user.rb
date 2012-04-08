@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_many :games
 
   has_attached_file :photo, styles: { small: "300x300#" },
-            url: "authors/:id/:style/:basename.:extension",
-            path: ":rails_root/public/assets/authors/:id/:style/:basename.:extension"
+            url: "users/:id/:style/:basename.:extension",
+            path: ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
   before_create :set_default_role
 
