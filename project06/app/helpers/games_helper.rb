@@ -1,10 +1,17 @@
 module GamesHelper
 
-  def games_nav
+  def gamez_header
     controller = params[:controller]
-    if controller == "members/games" || controller == :admin
+    if controller == "members/games"
       raw RedCloth.new("h2. My Gamez").to_html + new_game
+    elsif controller == "admin/games"
+      admin_gamez_header
     end
+  end
+
+  def admin_gamez_header
+    count = Game.count
+    raw RedCloth.new("h2. #{pluralize(count, "Total Game")}").to_html + new_game
   end
 
   def game_title(game)
