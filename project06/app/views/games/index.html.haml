@@ -11,6 +11,6 @@
     - @games.each do |game|
       %tr
         %td= game_title(game)
-        %td= game.rating.title
+        %td= game_rating(game)
         %td= created_at_and_by(game)
-//= stats
+.gamez_stats= stats

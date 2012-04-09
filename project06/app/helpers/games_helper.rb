@@ -20,11 +20,19 @@ module GamesHelper
     elsif current_user.is_admin?
       link_to game.title, edit_admin_game_path(game)
     else
-      if permitted_to? :edit, game
+      if game.created_by? current_user
         link_to game.title, edit_members_game_path(game)
       else
         game.title
       end
+    end
+  end
+
+  def game_rating(game)
+    if game.rating.blank?
+      "Unrated"
+    else
+      game.rating.title
     end
   end
 
@@ -53,13 +61,13 @@ module GamesHelper
   def stats
     unless current_user.nil?
       "I've created #{pluralize(current_user.games_count, "game")}, " +
-        "#{current_user.percentage_rated}% of which are rated." 
+        "#{current_user.percent_of_games_rated}% of which are rated." 
     end
   end
 
   def creator(f)
-    if current_user.is_admin?
-      render 'games/creator', :form => f
+    unless current_user.nil? || params[:action] == 'new'
+      render('games/creator', :form => f) if current_user.is_admin?
     end
   end
 

@@ -92,6 +92,18 @@ class User < ActiveRecord::Base
 
   end
 
+  def percent_of_games_rated
+    rated = Game.where("user_id = #{self.id} AND rating_id != 0").count * 1.0
+    total = self.games.size * 1.0
+
+    if total == 0
+      0
+    else
+      ((rated/total) * 100).to_i
+    end
+  end
+
+
   private
 
   def time_ago_string(time_ago, singular_unit)
