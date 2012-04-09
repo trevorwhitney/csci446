@@ -14,8 +14,6 @@ module UsersHelper
     unless current_user.nil?
       if current_user.is_admin?
         render 'users/roles_li', :form => form
-      else
-        user_roles
       end
     end
   end
