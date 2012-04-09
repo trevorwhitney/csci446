@@ -22,6 +22,7 @@ User.transaction do
     u.username = "administrator"
     u.email = "JoeAdmin@gamez.com"
     u.role_ids = [1]
+    u.photo = File.new("db/seeds/bode-miller.jpg")
   end
 
   member = User.new do |u|
@@ -32,6 +33,7 @@ User.transaction do
     u.username = "member"
     u.email = "JoeMember@gamez.com"
     u.role_ids = [2]
+    u.photo = File.new("db/seeds/julia-mancuso.jpg")
   end
 
   admin.save
