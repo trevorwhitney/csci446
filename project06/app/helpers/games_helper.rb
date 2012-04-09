@@ -2,11 +2,13 @@ module GamesHelper
 
   def gamez_header
     controller = params[:controller]
-    if controller == "members/games"
-      raw RedCloth.new("h2. My Gamez").to_html + new_game
-    elsif controller == "admin/games"
-      admin_gamez_header
+    unless controller == 'games'
+      render 'games/header', :controller => controller
     end
+  end
+
+  def member_gamez_header
+    raw RedCloth.new("h2. My Gamez").to_html + new_game
   end
 
   def admin_gamez_header
