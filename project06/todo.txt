@@ -1,5 +1,3 @@
-
-5. 'store_location' error -- http://gamez.local/members/game
-
-7. User edit should only show "Register" on registration
-9. Users count for roles of when new data is seeded
+O) 'store_location' error -- http://gamez.local/members/game
+O) Implement captcha
+O) password filtering
