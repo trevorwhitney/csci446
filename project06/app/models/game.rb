@@ -17,6 +17,10 @@ class Game < ActiveRecord::Base
       :include => [:rating, :user], :order => "created_at DESC"
   end
 
+  def created_by?(user)
+    self.user_id == user.id
+  end
+
   private
 
   def set_user
