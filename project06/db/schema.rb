@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20120408194910) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
-    t.integer  "rating_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "rating_id",  :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "user_id"
   end
 
