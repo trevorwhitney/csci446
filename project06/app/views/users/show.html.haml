@@ -1,14 +1,17 @@
-%h2= "Profile for #{@user.username}" 
+%h2#profile_title= "Profile for #{@user.full_name}" 
+= image_tag @user.photo.url(:small), :class => 'user_photo'
 %ol.user_profile
-  %li.photo= image_tag @user.photo.url(:small)
   %li
     %p.bold Name:
     %p= @user.full_name
   %li
     %p.bold Email:
     %p= @user.email
-  %li Photo placeholder
+  %li
+    %p.bold Username:
+    %p= @user.username
   %li
     %p.bold Role:
     %p= user_roles
   %li= link_to "Edit", @edit_user_path, :class => "button"
+.clear
