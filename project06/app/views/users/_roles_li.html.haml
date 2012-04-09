@@ -1,3 +1,7 @@
 %li
-  = form.label :role
-  = user_roles_select
+  = form.label :roles
+  %ul.role_checkboxes
+    - Role.all.each do |role|
+      %li
+        = check_box_tag("user[role_ids][]", role.id, @user.roles.include?(role))
+        = label_tag role.name

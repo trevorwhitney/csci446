@@ -11,20 +11,12 @@ module UsersHelper
   end
 
   def user_roles_li(form)
-    unless current_user.nil? || !current_user.is_admin?
-      render 'users/roles_li', :form => form
-    end
-  end
-
-  def user_roles_select
-    if current_user.nil?
-      return
-    elsif current_user.is_admin?
-      cur_role_id = @user.role_ids.sort.first
-      select("role", "id", Role.all.map { |r| [r.name, r.id] }, 
-        :selected => cur_role_id)
-    else
-      user_roles
+    unless current_user.nil?
+      if current_user.is_admin?
+        render 'users/roles_li', :form => form
+      else
+        user_roles
+      end
     end
   end
 
