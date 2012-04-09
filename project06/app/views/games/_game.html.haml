@@ -13,5 +13,5 @@
           %li
             = f.radio_button :rating_id, rating.id
             = f.label :rating_id, rating.title 
-    %li= creator(f) unless current_user.nil?
+    = creator(f) unless current_user.nil? || params[:action] == 'new'
     %li= f.submit "Save"

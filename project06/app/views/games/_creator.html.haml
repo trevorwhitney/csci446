@@ -1,2 +1,3 @@
-= form.label "Creator"
-= select("user", "id", User.all.map { |u| [u.full_name, u.id] }, :selected => @game.user.id)
+%li
+  = form.label "Creator"
+  = select("game", "user_id", User.all.map { |u| [u.full_name, u.id] }, :selected => @game.user.id ||= current_user.id)
