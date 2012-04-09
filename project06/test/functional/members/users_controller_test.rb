@@ -41,12 +41,4 @@ class Members::UsersControllerTest < ActionController::TestCase
     assert_redirected_to members_profile_path
   end
 
-  def login_member
-    UserSession.create(users(:member))
-  end
-
-  def login_admin
-    UserSession.create(users(:admin))
-  end 
-
 end
