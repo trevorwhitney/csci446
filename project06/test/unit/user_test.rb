@@ -7,7 +7,6 @@ class UserTest < ActiveSupport::TestCase
     assert !users(:member).is_admin?
   end
 
-
   test "last_login" do
     user = users(:admin)
 
@@ -51,6 +50,53 @@ class UserTest < ActiveSupport::TestCase
 
     users(:admin).roles << Role.find_by_name("member")
     assert_equal [:administrator, :member], users(:admin).role_symbols
+  end
+
+
+  test "role_ids" do
+    assert users(:admin).role_ids.include? roles(:administrator).id
+    assert users(:member).role_ids.include? roles(:member).id
+  end
+
+  test "add role" do
+    user = users(:member)
+    user.role(roles(:administrator).id)
+
+    assert_equal [roles(:administrator).id, roles(:member).id].sort, 
+      user.role_ids.sort
+  end
+
+  test "games count" do
+    admin = users(:admin)
+    login_admin
+
+    game = Game.new :title => "Monkey Pirates"
+    game.save
+
+    admin.reload
+
+    assert_equal 2, admin.games.size
+  end
+
+  test "percent of games rated" do
+    admin = users(:admin)
+    assert_equal 100, admin.percent_of_games_rated
+
+    login_admin
+
+    game = Game.new( :title => "New Game")
+    game.save
+
+    admin.reload
+
+    assert_equal 50, admin.percent_of_games_rated
+
+    game.rating_id = 1
+    game.save
+
+    admin.reload
+
+    assert_equal 100, admin.percent_of_games_rated
   end
 
 end

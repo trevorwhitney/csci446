@@ -6,6 +6,7 @@ admin:
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("password" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
+  games_count: 1
 
 member:
   first_name: Joe
@@ -15,3 +16,4 @@ member:
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("password" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
+  games_count: 1
