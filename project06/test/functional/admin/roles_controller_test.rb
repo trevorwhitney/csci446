@@ -82,12 +82,4 @@ class Admin::RolesControllerTest < ActionController::TestCase
     assert_equal "Role was sucessfully updated.", flash[:notice]
   end
 
-  def login_member
-    UserSession.create(users(:member))
-  end
-
-  def login_admin
-    UserSession.create(users(:admin))
-  end
-
 end

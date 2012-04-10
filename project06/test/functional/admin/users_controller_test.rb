@@ -91,7 +91,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
       :email => "newuser@new.com"
     }
 
-    UserSession.create(users(:admin))
+    login_admin
 
     #test failure
     post :create, :user => new_user_attr
@@ -110,7 +110,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert_response :redirect
 
     #member
-    UserSession.create(users(:member))
+    login_member
     post :update
     assert_response :redirect
   end
@@ -120,15 +120,15 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user.username = nil
 
     #test failure
-    UserSession.create(users(:admin))
+    login_admin
     put :update, { :id => user.id, :user => user.attributes }
-    assert_redirected_to edit_admin_user_path(user)
+    assert_template 'users/edit'
 
     #test success
     user.username = 'member'
     put :update, { :id => user, :attributes => user.attributes }
     assert_redirected_to admin_users_path
-    assert_equal 'User was successfully updated.', flash[:notice]
+    assert_equal 'User was successfully updated.', flash[:success]
   end
 
 end

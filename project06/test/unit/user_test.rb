@@ -2,6 +2,64 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+  def setup
+    @user = User.new do |u|
+      u.email = "new_email@email.com"
+      u.username = "jsmith"
+      u.first_name = "joe"
+      u.last_name = "smith"
+      u.password = "stones"
+      u.password_confirmation = "stones"
+    end
+  end
+
+  #test validations
+  test "username must be 6 characters" do
+    user = @user
+    user.username = "joe"
+
+    assert !user.valid?
+
+    user.username = "joeseph"
+
+    assert user.valid?
+  end
+
+  test "password must be 6 characters" do
+    user = @user
+    user.password = "stone"
+    user.password_confirmation = "stone"
+
+    assert !user.valid?
+
+    user.password = "stones"
+    user.password_confirmation = "stones"
+
+    assert user.valid?
+  end
+
+  test "username must be unique" do
+    user = @user
+    user.username = users(:admin).username
+
+    assert !user.valid?
+
+    user.username = "newuser"
+
+    assert user.valid?
+  end
+
+  test "email must be unique" do
+    user = @user
+    user.email = users(:admin).email
+
+    assert !user.valid?
+
+    user.email = "old_email@email.com"
+
+    assert user.valid?
+  end
+
   test "is_admin?" do
     assert users(:admin).is_admin?
     assert !users(:member).is_admin?
@@ -48,7 +106,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal [:administrator], users(:admin).role_symbols
     assert_equal [:member], users(:member).role_symbols
 
-    users(:admin).roles << Role.find_by_name("member")
+    users(:admin).roles << Role.find_by_name("Member")
     assert_equal [:administrator, :member], users(:admin).role_symbols
   end
 
