@@ -1,3 +1,0 @@
-O) 'store_location' error -- http://gamez.local/members/game
-O) Implement captcha
-O) password filtering
