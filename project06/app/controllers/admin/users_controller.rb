@@ -23,7 +23,7 @@ class Admin::UsersController < Admin::AdminController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to admin_users_path, 
-          success: 'User was successfully updated.' }
+          :flash => { :success => 'User was successfully updated.' } }
         format.json { head :no_content }
       else
         @form_url = admin_user_path
