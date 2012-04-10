@@ -101,7 +101,6 @@ class Admin::UsersControllerTest < ActionController::TestCase
     new_user_attr[:password_confirmation] = "password"
     post :create, :user => new_user_attr
     assert_redirected_to root_url
-    assert_equal "Registration suceeded.", flash[:notice]
   end
 
   test "shouldn't update for guest or member" do
@@ -128,7 +127,6 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user.username = 'member'
     put :update, { :id => user, :attributes => user.attributes }
     assert_redirected_to admin_users_path
-    assert_equal 'User was successfully updated.', flash[:success]
   end
 
 end
