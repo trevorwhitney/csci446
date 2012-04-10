@@ -2,15 +2,29 @@ require 'integer_to_word'
 
 class User < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
-	acts_as_authentic
+	acts_as_authentic do |c|
+    c.merge_validates_length_of_login_field_options( 
+      :length => { :minimum => 6},
+      :message => "is too short (minimum is 6 characters)." )
+    c.merge_validates_length_of_password_field_options(
+      :length => { :minimum => 6 },
+      :message => "is too short (minimum is 6 characters)." )
+    c.merge_validates_confirmation_of_password_field_options(
+      :message => "doesn't match confirmation."
+      )
+  end
+
+  validates_presence_of :first_name, :last_name, :email, 
+    :message => "can't be blank."
+
 
   has_many :assignments
   has_many :roles, :through => :assignments
   has_many :games
 
   has_attached_file :photo, styles: { small: "300x300#" },
-            url: "users/:id/:style/:basename.:extension",
-            path: ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+    url: "users/:id/:style/:basename.:extension",
+    path: ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
   before_create :set_default_role
 
