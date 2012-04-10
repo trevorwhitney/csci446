@@ -3,18 +3,16 @@ require 'integer_to_word'
 class User < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
 	acts_as_authentic do |c|
-    c.merge_validates_length_of_login_field_options( 
-      :length => { :minimum => 6},
-      :message => "is too short (minimum is 6 characters)." )
-    c.merge_validates_length_of_password_field_options(
-      :length => { :minimum => 6 },
-      :message => "is too short (minimum is 6 characters)." )
+    c.login_field :username
+    c.merge_validates_length_of_login_field_options :within => 6..254
+    c.merge_validates_length_of_password_field_options :within => 6..254
     c.merge_validates_confirmation_of_password_field_options(
       :message => "doesn't match confirmation."
       )
+    c.validate_email_field :true
   end
 
-  validates_presence_of :first_name, :last_name, :email, 
+  validates_presence_of :first_name, :last_name, 
     :message => "can't be blank."
 
 
