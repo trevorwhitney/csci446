@@ -28,6 +28,12 @@ module UsersHelper
     end
   end
 
+  def recaptcha(form)
+    if current_user.nil?
+      render 'users/recaptcha', :form => form
+    end
+  end
+
   def login_link
     link_to image_tag('door_in.png') + "Login", login_path, :class => 'button'
   end
@@ -38,6 +44,12 @@ module UsersHelper
 
   def register_link
     link_to image_tag('user_add.png') + "Register", register_path, :class => 'button'
+  end
+
+  def delete(user)
+    if current_user.is_admin?
+      render 'users/delete', :user => user
+    end
   end
 
   def add_user_link
