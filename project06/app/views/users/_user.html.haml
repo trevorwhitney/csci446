@@ -1,7 +1,10 @@
 = register
 = form_for @user, :url => @form_url, :html => { :multipart => true} do |form|
 	- @user.errors.each do |attribute, msg|
-		%p.error= "#{attribute} #{msg}"
+		- if attribute == :base
+			%p.error= "#{msg.to_s.humanize}."
+		- else
+			%p.error= "#{attribute.to_s.humanize} #{msg}"
 	%ol.form_list
 		%li
 			= form.label :username
@@ -25,4 +28,5 @@
 			= form.label :photo
 			= form.file_field :photo
 		=user_roles_li(form)
+		= recaptcha(form)
 		%li= form.submit "Submit"
