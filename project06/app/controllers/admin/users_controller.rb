@@ -10,7 +10,7 @@ class Admin::UsersController < Admin::AdminController
   def create
   	@user = User.new(params[:user])
   	if @user.save
-  		flash[:notice] = "Registration suceeded."
+  		flash[:success] = "#{@user.full_name} sucessfully created."
   		redirect_to root_url
   	else
   		redirect_to new_admin_user_path
@@ -23,7 +23,7 @@ class Admin::UsersController < Admin::AdminController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to admin_users_path, 
-          :flash => { :success => 'User was successfully updated.' } }
+          :flash => { :success => "User #{@user.username} was successfully updated." } }
         format.json { head :no_content }
       else
         @form_url = admin_user_path
