@@ -52,4 +52,25 @@ class Admin::UsersController < Admin::AdminController
   	@users = User.all_users(params[:page])
     render 'users/index'
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    username = @user.username
+    
+    respond_to do |format|
+      if @user.destroy
+        format.html do
+          redirect_to admin_users_path, 
+            :flash => { :success => "User #{username} was sucessfully deleted." }
+        end
+      else
+        format.html do
+          params[:id] = @user.id
+          render 'users/show'
+        end
+      end
+    end
+
+  end
+
 end
