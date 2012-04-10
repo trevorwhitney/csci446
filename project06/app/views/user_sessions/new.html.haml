@@ -3,7 +3,10 @@
   First time here?
   = link_to "Register", register_path
 - @user_session.errors.each do |attribute, message|
-  %p.error= "#{attribute} #{message}"
+  - if attribute == :base
+    %p.error= "#{message.humanize}"
+  -else
+    %p.error= "#{attribute.to_s.humanize} #{message}"
 = form_for @user_session do |form|
   %ol.form_list
     %li
